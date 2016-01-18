@@ -1,0 +1,26 @@
+{
+	"name": "rModal",
+	"version": "0.5.0",
+	"homepage": "http://www.andreasnorman.com/rModal/",
+	"authors": [
+		"Andreas Norman <an@andreasnorman.se>"
+	],
+	"description": "Responsive modal windows",
+	"main": "dist/rModal.min.js",
+	"keywords": [
+		"navigation",
+		"mobile",
+		"responsive",
+		"off canvas"
+	],
+	"license": "MIT",
+	"ignore": [
+		"**/.*",
+		"node_modules",
+		"bower_components",
+		"demo/dependencies",
+		"test",
+		"tests"
+	],
+	"title": "rModal"
+}
