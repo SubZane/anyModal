@@ -1,5 +1,5 @@
-/*! rModal - v0.1.0 - 2016-01-18
-* https://github.com/SubZane/flyPanels
+/*! rModal - v0.1.0 - 2016-01-21
+* https://github.com/SubZane/rmodal
 * Copyright (c) 2016 Andreas Norman; Licensed MIT */
 var rModal = (function () {
 	var innerHeight = document.documentElement.clientHeight;

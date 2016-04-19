@@ -18,7 +18,9 @@ module.exports = function (grunt) {
 		postcss: {
 			options: {
 				processors: [
-					require('autoprefixer')({browsers: 'last 2 versions'}), // add vendor prefixes
+					require('autoprefixer')({
+						browsers: 'last 2 versions'
+					}), // add vendor prefixes
 				]
 			},
 			dist: {
@@ -117,13 +119,18 @@ module.exports = function (grunt) {
 					'description': 'description',
 				}
 			},
-
+			jscs: {
+				src: 'src/<%= pkg.name %>.js',
+				options: {
+					config: '.jscsrc',
+					verbose: true, // If you need output with rule names http://jscs.info/overview.html#verbose
+				}
+			}
 		}
 	});
 
 	// These plugins provide necessary tasks.
 	grunt.loadNpmTasks('grunt-contrib-clean');
-	grunt.loadNpmTasks('grunt-contrib-less');
 	grunt.loadNpmTasks('grunt-sass');
 	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
@@ -132,6 +139,7 @@ module.exports = function (grunt) {
 	grunt.loadNpmTasks('grunt-update-json');
 	grunt.loadNpmTasks('grunt-contrib-copy');
 	grunt.loadNpmTasks('grunt-postcss');
+	grunt.loadNpmTasks("grunt-jscs");
 
 	// Default task.
 	grunt.registerTask('default', ['jshint', 'clean', 'sass', 'concat', 'uglify', 'postcss', 'copy', 'version']);
