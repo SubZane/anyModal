@@ -18,9 +18,7 @@ module.exports = function (grunt) {
 		postcss: {
 			options: {
 				processors: [
-					require('autoprefixer')({
-						browsers: 'last 2 versions'
-					}), // add vendor prefixes
+					require('autoprefixer')({browsers: 'last 2 versions'}), // add vendor prefixes
 				]
 			},
 			dist: {
@@ -69,17 +67,17 @@ module.exports = function (grunt) {
 				options: {
 					jshintrc: 'src/.jshintrc'
 				},
-				src: 'src/<%= pkg.name %>.js'
+				src: 'src/rModal.js'
 			},
 		},
 		watch: {
-			js: {
-				files: ['<%= jshint.gruntfile.src %>', 'src/<%= pkg.name %>.js'],
-				tasks: ['jshint']
+			gruntfile: {
+				files: '<%= jshint.gruntfile.src %>',
+				tasks: ['jshint:gruntfile']
 			},
-			css: {
-				files: 'src/sass/*.scss',
-				tasks: ['sass']
+			src: {
+				files: '<%= jshint.src.src %>',
+				tasks: ['jshint:src', 'concat', 'uglify', 'copy']
 			},
 		},
 		copy: {
@@ -119,13 +117,7 @@ module.exports = function (grunt) {
 					'description': 'description',
 				}
 			},
-			jscs: {
-				src: 'src/<%= pkg.name %>.js',
-				options: {
-					config: '.jscsrc',
-					verbose: true, // If you need output with rule names http://jscs.info/overview.html#verbose
-				}
-			}
+
 		}
 	});
 
@@ -139,7 +131,6 @@ module.exports = function (grunt) {
 	grunt.loadNpmTasks('grunt-update-json');
 	grunt.loadNpmTasks('grunt-contrib-copy');
 	grunt.loadNpmTasks('grunt-postcss');
-	grunt.loadNpmTasks("grunt-jscs");
 
 	// Default task.
 	grunt.registerTask('default', ['jshint', 'clean', 'sass', 'concat', 'uglify', 'postcss', 'copy', 'version']);

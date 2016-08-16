@@ -1,9 +1,10 @@
-/*! rModal - v0.1.0 - 2016-01-21
+/*! rModal - v0.5.0 - 2016-08-16
 * https://github.com/SubZane/rmodal
 * Copyright (c) 2016 Andreas Norman; Licensed MIT */
 var rModal = (function () {
 	var innerHeight = document.documentElement.clientHeight;
 	var overlay;
+	var scrollbarWidth;
 
 	// Modal object used to store all modal data for quick access.
 	var modal = {
@@ -23,6 +24,8 @@ var rModal = (function () {
   var init = function (settings) {
 
 		options = extend(defaults, settings || {});
+
+		detectScrollbarWidth();
 
 		document.querySelector('body').innerHTML += '<div class="rModal-overlay"></div>';
 		overlay = document.querySelector('.rModal-overlay');
@@ -75,6 +78,31 @@ var rModal = (function () {
 
   };
 
+	var detectScrollbarWidth = function () {
+		var outer = document.createElement('div');
+		outer.style.visibility = 'hidden';
+		outer.style.width = '100px';
+		outer.style.msOverflowStyle = 'scrollbar'; // needed for WinJS apps
+
+		document.body.appendChild(outer);
+
+		var widthNoScroll = outer.offsetWidth;
+		// force scrollbars
+		outer.style.overflow = 'scroll';
+
+		// add innerdiv
+		var inner = document.createElement('div');
+		inner.style.width = '100%';
+		outer.appendChild(inner);
+
+		var widthWithScroll = inner.offsetWidth;
+
+		// remove divs
+		outer.parentNode.removeChild(outer);
+
+		scrollbarWidth = widthNoScroll - widthWithScroll;
+	};
+
 	var loadContent = function () {
 		var request = new XMLHttpRequest();
 
@@ -117,6 +145,8 @@ var rModal = (function () {
 		document.querySelector('body').classList.add('rModal-locked');
 		document.querySelector('html').classList.add('rModal-locked');
 		overlay.classList.add('fadein');
+		console.log(scrollbarWidth);
+		document.querySelector('body').style.marginRight = '15px';
 
 		if (modal.isFed) {
 			loadContent();
@@ -133,6 +163,7 @@ var rModal = (function () {
 
 	var close = function () {
 		modal.element.classList.add('rModal-inactive');
+
 		overlay.classList.add('fadeout');
 		// let's wait for the neat animations to finish!
 		setTimeout(function () {
@@ -149,6 +180,7 @@ var rModal = (function () {
 			if (modal.isFed) {
 				modal.element.querySelector('.rModal .content').remove();
 			}
+			document.querySelector('body').style.marginRight = '';
 		}, options.transitiontime);
 	};
 
