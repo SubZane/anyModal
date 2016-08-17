@@ -3,6 +3,7 @@ body {
   padding: 0;
   font-family: 'Open Sans', sans-serif;
   font-weight:400;
+  background-color: #fff;
 }
 
 h1 {
@@ -64,8 +65,8 @@ p {
 
 a.btn-primary {
   background-color: transparent;
-  border: solid 2px #c0392b;
-  color: #c0392b;
+  border: solid 2px #D65C30;
+  color: #D65C30;
   padding-left: 40px;
   padding-right: 40px;
   padding-top: 15px;
@@ -80,22 +81,26 @@ a.btn-primary {
 a.btn-primary:link,
 a.btn-primary:visited {
   background-color: transparent;
-  border: solid 2px #c0392b;
-  color: #c0392b;
+  border: solid 2px #D65C30;
+  color: #D65C30;
 }
 a.btn-primary:active {
-  background-color: #c0392b;
+  background-color: #D65C30;
   color: #fff;
   .box-shadow(none);
 }
 a.btn-primary:hover {
-  background-color: #c0392b;
+  background-color: #D65C30;
   color: #fff;
 }
 
 /* footer */
 footer {
   margin-top: 40px;
+}
+
+h3 {
+  
 }
 
 footer h3 {

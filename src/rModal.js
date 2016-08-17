@@ -75,6 +75,19 @@ var rModal = (function () {
 
   };
 
+	var hasVerticalScroll = function () {
+		var scrollHeight = document.body.scrollHeight;
+		var clientHeight = document.documentElement.clientHeight;
+		var hasVerticalScrollbar = scrollHeight > clientHeight;
+		return hasVerticalScrollbar;
+	};
+
+	var createModalWindow = function () {
+	};
+
+	var destroyModalWindow = function (modal_id) {
+	};
+
 	var detectScrollbarWidth = function () {
 		var outer = document.createElement('div');
 		outer.style.visibility = 'hidden';
@@ -139,11 +152,12 @@ var rModal = (function () {
 
 	var open = function () {
 		setHeight(modal.name);
+		if (hasVerticalScroll() === true) {
+			document.querySelector('body').style.marginRight = '15px';
+		}
 		document.querySelector('body').classList.add('rModal-locked');
 		document.querySelector('html').classList.add('rModal-locked');
 		overlay.classList.add('fadein');
-		console.log(scrollbarWidth);
-		document.querySelector('body').style.marginRight = '15px';
 
 		if (modal.isFed) {
 			loadContent();

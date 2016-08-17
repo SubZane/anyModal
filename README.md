@@ -1,7 +1,6 @@
-rModal v0.5
+rModal v1.0.0
 =======
 
-flyPanels - responsive off canvas menu panels
 
 ##Features
 
