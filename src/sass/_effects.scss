@@ -1,0 +1,259 @@
+/* Individual modal styles with animations/transitions */
+
+/* Effect 1: Fade in and scale up */
+.md-effect-1 .md-content {
+	transform: scale(0.7);
+	opacity: 0;
+	transition: all $transitiontime;
+}
+
+.md-show.md-effect-1 .md-content {
+	transform: scale(1);
+	opacity: 1;
+}
+
+/* Effect 2: Slide from the right */
+.md-effect-2 .md-content {
+	transform: translateX(20%);
+	opacity: 0;
+	transition: all $transitiontime cubic-bezier(0.25, 0.5, 0.5, 0.9);
+}
+
+.md-show.md-effect-2 .md-content {
+	transform: translateX(0);
+	opacity: 1;
+}
+
+/* Effect 3: Slide from the bottom */
+.md-effect-3 .md-content {
+	transform: translateY(20%);
+	opacity: 0;
+	transition: all $transitiontime;
+}
+
+.md-show.md-effect-3 .md-content {
+	transform: translateY(0);
+	opacity: 1;
+}
+
+/* Effect 4: Newspaper */
+.md-effect-4 .md-content {
+	transform: scale(0) rotate(720deg);
+	opacity: 0;
+}
+
+.md-show.md-effect-4 ~ .md-overlay,
+.md-effect-4 .md-content {
+	transition: all $transitiontime;
+}
+
+.md-show.md-effect-4 .md-content {
+	transform: scale(1) rotate(0deg);
+	opacity: 1;
+}
+
+/* Effect 5: fall */
+.md-effect-5.md-modal {
+	perspective: 1300px;
+}
+
+.md-effect-5 .md-content {
+	transform-style: preserve-3d;
+	transform: translateZ(600px) rotateX(20deg);
+	opacity: 0;
+}
+
+.md-show.md-effect-5 .md-content {
+	transition: all $transitiontime ease-in;
+	transform: translateZ(0px) rotateX(0deg);
+	opacity: 1;
+}
+
+/* Effect 6: side fall */
+.md-effect-6.md-modal {
+	perspective: 1300px;
+}
+
+.md-effect-6 .md-content {
+	transform-style: preserve-3d;
+	transform: translate(30%) translateZ(600px) rotate(10deg);
+	opacity: 0;
+}
+
+.md-show.md-effect-6 .md-content {
+	transition: all $transitiontime ease-in;
+	transform: translate(0%) translateZ(0) rotate(0deg);
+	opacity: 1;
+}
+
+/* Effect 7:  slide and stick to top */
+.md-effect-7{
+	top: 0;
+	transform: translateX(-50%);
+}
+
+.md-effect-7 .md-content {
+	transform: translateY(-200%);
+	transition: all .3s;
+	opacity: 0;
+}
+
+.md-show.md-effect-7 .md-content {
+	transform: translateY(0%);
+	border-radius: 0 0 3px 3px;
+	opacity: 1;
+}
+
+/* Effect 8: 3D flip horizontal */
+.md-effect-8.md-modal {
+	perspective: 1300px;
+}
+
+.md-effect-8 .md-content {
+	transform-style: preserve-3d;
+	transform: rotateY(-70deg);
+	transition: all $transitiontime;
+	opacity: 0;
+}
+
+.md-show.md-effect-8 .md-content {
+	transform: rotateY(0deg);
+	opacity: 1;
+}
+
+/* Effect 9: 3D flip vertical */
+.md-effect-9.md-modal {
+	perspective: 1300px;
+}
+
+.md-effect-9 .md-content {
+	transform-style: preserve-3d;
+	transform: rotateX(-70deg);
+	transition: all $transitiontime;
+	opacity: 0;
+}
+
+.md-show.md-effect-9 .md-content {
+	transform: rotateX(0deg);
+	opacity: 1;
+}
+
+/* Effect 10: 3D sign */
+.md-effect-10.md-modal {
+	perspective: 1300px;
+}
+
+.md-effect-10 .md-content {
+	transform-style: preserve-3d;
+	transform: rotateX(-60deg);
+	transform-origin: 50% 0;
+	opacity: 0;
+	transition: all $transitiontime;
+}
+
+.md-show.md-effect-10 .md-content {
+	transform: rotateX(0deg);
+	opacity: 1;
+}
+
+/* Effect 11: Super scaled */
+.md-effect-11 .md-content {
+	transform: scale(2);
+	opacity: 0;
+	transition: all $transitiontime;
+}
+
+.md-show.md-effect-11 .md-content {
+	transform: scale(1);
+	opacity: 1;
+}
+
+/* Effect 13: 3D slit */
+.md-effect-13.md-modal {
+	perspective: 1300px;
+}
+
+.md-effect-13 .md-content {
+	transform-style: preserve-3d;
+	transform: translateZ(-3000px) rotateY(90deg);
+	opacity: 0;
+}
+
+.md-show.md-effect-13 .md-content {
+	animation: slit $transitiontime forwards ease-out;
+}
+
+@-webkit-keyframes slit {
+	50% { -webkit-transform: translateZ(-250px) rotateY(89deg); opacity: .5; -webkit-animation-timing-function: ease-out;}
+	100% { -webkit-transform: translateZ(0) rotateY(0deg); opacity: 1; }
+}
+
+@-moz-keyframes slit {
+	50% { -moz-transform: translateZ(-250px) rotateY(89deg); opacity: .5; -moz-animation-timing-function: ease-out;}
+	100% { -moz-transform: translateZ(0) rotateY(0deg); opacity: 1; }
+}
+
+@keyframes slit {
+	50% { transform: translateZ(-250px) rotateY(89deg); opacity: 1; animation-timing-function: ease-in;}
+	100% { transform: translateZ(0) rotateY(0deg); opacity: 1; }
+}
+
+/* Effect 14:  3D Rotate from bottom */
+.md-effect-14.md-modal {
+	perspective: 1300px;
+}
+
+.md-effect-14 .md-content {
+	transform-style: preserve-3d;
+	transform: translateY(100%) rotateX(90deg);
+	transform-origin: 0 100%;
+	opacity: 0;
+	transition: all $transitiontime ease-out;
+}
+
+.md-show.md-effect-14 .md-content {
+	transform: translateY(0%) rotateX(0deg);
+	opacity: 1;
+}
+
+/* Effect 15:  3D Rotate in from left */
+.md-effect-15.md-modal {
+	perspective: 1300px;
+}
+
+.md-effect-15 .md-content {
+	transform-style: preserve-3d;
+	transform: translateZ(100px) translateX(-30%) rotateY(90deg);
+	transform-origin: 0 100%;
+	opacity: 0;
+	transition: all $transitiontime;
+}
+
+.md-show.md-effect-15 .md-content {
+	transform: translateZ(0px) translateX(0%) rotateY(0deg);
+	opacity: 1;
+}
+
+/* Effect 16:  Blur */
+.md-show.md-effect-16 ~ .md-overlay {
+	background: rgba(180,46,32,0.5);
+}
+
+.md-show.md-effect-16 ~ .container {
+	filter: blur(3px);
+}
+
+.md-effect-16 .md-content {
+	transform: translateY(-5%);
+	opacity: 0;
+}
+
+.md-show.md-effect-16 ~ .container,
+.md-effect-16 .md-content {
+	transition: all $transitiontime;
+}
+
+.md-show.md-effect-16 .md-content {
+	transform: translateY(0);
+	opacity: 1;
+}

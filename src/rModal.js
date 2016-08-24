@@ -37,12 +37,19 @@ var rModal = (function () {
 			});
 		});
 
-		var rmodals = document.querySelectorAll('[data-rmodal]');
+		var rmodals = document.querySelectorAll('[data-modal]');
 		forEach(rmodals, function (index, value) {
 			index.addEventListener('click', function (e) {
 				e.preventDefault();
-				modal.name = index.getAttribute('data-rmodal');
-				modal.element = document.querySelector('#rModal_' + modal.name);
+				modal.name = index.getAttribute('data-modal');
+				modal.effect = index.getAttribute('data-effect');
+				modal.element = document.querySelector('#' + modal.name);
+				modal.element.classList.add(modal.effect);
+
+				// Force element to apply new css rules
+				modal.element.style.display='none';
+				var temp = modal.element.offsetHeight; // no need to store this anywhere, the reference is enough
+				modal.element.style.display='';
 
 				if (modal.element.hasAttribute('data-modaldata')) {
 					modal.isFed = true;
@@ -53,7 +60,7 @@ var rModal = (function () {
 
 				// Close the modal if overlay behind is touched/clicked. Not working at the moment.
 				('click touchmove touchend touchleave touchcancel'.split(' ')).forEach(function (event) {
-					modal.element.addEventListener(event, function (e) {
+					overlay.addEventListener(event, function (e) {
 						if (e.target === this) {
 							close();
 						}
@@ -74,6 +81,14 @@ var rModal = (function () {
 		});
 
   };
+
+	var isMobileBrowser = function () {
+		if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+			return true;
+		} else {
+			return false;
+		}
+	};
 
 	var hasVerticalScroll = function () {
 		var scrollHeight = document.body.scrollHeight;
@@ -152,8 +167,8 @@ var rModal = (function () {
 
 	var open = function () {
 		setHeight(modal.name);
-		if (hasVerticalScroll() === true) {
-			document.querySelector('body').style.marginRight = '15px';
+		if (hasVerticalScroll() === true && isMobileBrowser() === false) {
+			document.querySelector('body').style.marginRight = scrollbarWidth + 'px';
 		}
 		document.querySelector('body').classList.add('rModal-locked');
 		document.querySelector('html').classList.add('rModal-locked');
@@ -162,24 +177,26 @@ var rModal = (function () {
 		if (modal.isFed) {
 			loadContent();
 		}
-
 		modal.element.classList.add('rModal-active');
+		modal.element.classList.add('md-show');
 
-		modal.element.querySelector('.rModal-closebutton').addEventListener('click', function(e) {
+		setTimeout(function () {
+			modal.element.classList.add('md-animation-done');
+		}, options.transitiontime);
+
+		modal.element.querySelector('.md-cross').addEventListener('click', function(e) {
 			e.preventDefault();
 			close();
 		});
-
 	};
 
 	var close = function () {
-		modal.element.classList.add('rModal-inactive');
+		modal.element.classList.remove('md-show');
+		modal.element.classList.remove('md-animation-done');
 
 		overlay.classList.add('fadeout');
 		// let's wait for the neat animations to finish!
 		setTimeout(function () {
-			modal.element.classList.remove('rModal-active');
-			modal.element.classList.remove('rModal-inactive');
 			overlay.classList.remove('fadein');
 			overlay.classList.remove('fadeout');
 			document.querySelector('body').classList.remove('rModal-locked');
@@ -192,6 +209,7 @@ var rModal = (function () {
 				modal.element.querySelector('.rModal .content').remove();
 			}
 			document.querySelector('body').style.marginRight = '';
+			modal.element.classList.remove(modal.effect);
 		}, options.transitiontime);
 	};
 

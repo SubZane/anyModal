@@ -34,43 +34,70 @@
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-xs-12 col-md-4 col-md-offset-2">
-				<h3>Example with inline content</h3>
-				<p>This modal window grabs existing content all ready in the markup and displays it</p>
-				<p>
-					<a class="btn btn-primary" href="#" data-rmodal="inline">Open modal</a>
-				</p>
-
-			</div>
-
-			<div class="col-xs-12 col-md-4">
-				<h3>Example with content from a json file</h3>
-				<p>This modal window grabs content from a JSON file. This could be a remote file or even a service returning a JSON response</p>
-				<p>
-					<a class="btn btn-primary" href="#" data-rmodal="json">Open modal</a>
-				</p>
-
+			<div class="col-xs-12 col-md-8 col-md-offset-2">
+				<h3>Try out the demos below</h3>
+				<p>Each button displays a different awesome effect.</p>
+				<div class="buttons">
+					<a class="btn btn-effect" href="#" data-modal="r-modal" data-effect="md-effect-1">Fade and zoom</a>
+					<a class="btn btn-effect" href="#" data-modal="r-modal" data-effect="md-effect-2">Slide from right</a>
+					<a class="btn btn-effect" href="#" data-modal="r-modal" data-effect="md-effect-3">Pop from bottom</a>
+					<a class="btn btn-effect" href="#" data-modal="r-modal" data-effect="md-effect-4">Newspaper</a>
+					<a class="btn btn-effect" href="#" data-modal="r-modal" data-effect="md-effect-5">Fall</a>
+					<a class="btn btn-effect" href="#" data-modal="r-modal" data-effect="md-effect-6">Side fall</a>
+					<a class="btn btn-effect" href="#" data-modal="r-modal" data-effect="md-effect-7">Sticky up</a>
+					<a class="btn btn-effect" href="#" data-modal="r-modal" data-effect="md-effect-8">Side flip</a>
+					<a class="btn btn-effect" href="#" data-modal="r-modal" data-effect="md-effect-9">Top flip</a>
+					<a class="btn btn-effect" href="#" data-modal="r-modal" data-effect="md-effect-10">3D sign</a>
+					<a class="btn btn-effect" href="#" data-modal="r-modal" data-effect="md-effect-11">Scale</a>
+					<a class="btn btn-effect" href="#" data-modal="r-modal" data-effect="md-effect-13">3D slit</a>
+					<a class="btn btn-effect" href="#" data-modal="r-modal" data-effect="md-effect-14">3D rotate bottom</a>
+					<a class="btn btn-effect" href="#" data-modal="r-modal" data-effect="md-effect-15">3D rotate in left</a>
+				</div>
+				<p>All effects used has been stolen/borrowed from <a href="http://tympanus.net/Development/ModalWindowEffects/">Nifty Modal Window Effects</a></p>
 			</div>
 
 		</div>
 	</div>
 
-	<div class="rModal-wrapper" id="rModal_inline">
-		<div class="rModal">
-			<div class="content">
-				<h2>Nullam quis risus eget urna mollis ornare</h2>
-				<p>Nullam quis risus eget urna mollis ornare vel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit. Donec sed odio dui. Donec id elit non mi porta gravida at eget metus. Donec ullamcorper nulla non metus auctor fringilla.</p>
+	<div class="md-modal" id="r-modal">
+		<div class="md-content">
+			<div class="md-header">
+				<h3>Modal Dialog</h3>
+				<a href="#" class="md-cross">
+					<svg width="19px" height="19px" viewBox="0 0 19 19" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+					    <title>cross</title>
+					    <desc>Created with Sketch.</desc>
+					    <defs></defs>
+					    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="0.2">
+					        <path d="M18.4338153,14.8339456 C18.4338153,14.4460286 18.2786485,14.0581116 17.9993482,13.7788114 L13.4374445,9.21690764 L17.9993482,4.65500386 C18.2786485,4.37570363 18.4338153,3.98778664 18.4338153,3.59986965 C18.4338153,3.21195266 18.2786485,2.82403567 17.9993482,2.54473544 L15.8890798,0.434467027 C15.6097796,0.155166795 15.2218626,0 14.8339456,0 C14.4460286,0 14.0581116,0.155166795 13.7788114,0.434467027 L9.21690764,4.99637081 L4.65500386,0.434467027 C4.37570363,0.155166795 3.98778664,0 3.59986965,0 C3.21195266,0 2.82403567,0.155166795 2.54473544,0.434467027 L0.434467027,2.54473544 C0.155166795,2.82403567 0,3.21195266 0,3.59986965 C0,3.98778664 0.155166795,4.37570363 0.434467027,4.65500386 L4.99637081,9.21690764 L0.434467027,13.7788114 C0.155166795,14.0581116 0,14.4460286 0,14.8339456 C0,15.2218626 0.155166795,15.6097796 0.434467027,15.8890798 L2.54473544,17.9993482 C2.82403567,18.2786485 3.21195266,18.4338153 3.59986965,18.4338153 C3.98778664,18.4338153 4.37570363,18.2786485 4.65500386,17.9993482 L9.21690764,13.4374445 L13.7788114,17.9993482 C14.0581116,18.2786485 14.4460286,18.4338153 14.8339456,18.4338153 C15.2218626,18.4338153 15.6097796,18.2786485 15.8890798,17.9993482 L17.9993482,15.8890798 C18.2786485,15.6097796 18.4338153,15.2218626 18.4338153,14.8339456 L18.4338153,14.8339456 Z" id="cross" fill="#000000"></path>
+					    </g>
+					</svg>
+				</a>
 			</div>
-		</div>
-		<div class="rModal-footer">
-			<a href="#" class="rModal-closebutton">Close Window</a>
-		</div>
-	</div>
 
-	<div class="rModal-wrapper" id="rModal_json" data-modaldata="dummy/modaldata.json">
-		<div class="rModal"></div>
-		<div class="rModal-footer">
-			<a href="#" class="rModal-closebutton">Close Window</a>
+			<div class="md-inner">
+				<p>This is a modal window. You can do the following things with it:</p>
+				<p>Sed posuere consectetur est at lobortis. Sed posuere consectetur est at lobortis. Donec sed odio dui. Donec id elit non mi porta gravida at eget metus.</p>
+				<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Vestibulum id ligula porta felis euismod semper.</p>
+				<p>Cras mattis consectetur purus sit amet fermentum. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+				<p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Sed posuere consectetur est at lobortis. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Curabitur blandit tempus porttitor. Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</p>
+				<p>Sed posuere consectetur est at lobortis. Sed posuere consectetur est at lobortis. Donec sed odio dui. Donec id elit non mi porta gravida at eget metus.</p>
+				<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Vestibulum id ligula porta felis euismod semper.</p>
+				<p>Cras mattis consectetur purus sit amet fermentum. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+				<p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Sed posuere consectetur est at lobortis. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Curabitur blandit tempus porttitor. Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</p>
+				<p>Cras mattis consectetur purus sit amet fermentum. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+				<p>Sed posuere consectetur est at lobortis. Sed posuere consectetur est at lobortis. Donec sed odio dui. Donec id elit non mi porta gravida at eget metus.</p>
+				<p>Sed posuere consectetur est at lobortis. Sed posuere consectetur est at lobortis. Donec sed odio dui. Donec id elit non mi porta gravida at eget metus.</p>
+				<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Vestibulum id ligula porta felis euismod semper.</p>
+				<p>Cras mattis consectetur purus sit amet fermentum. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+				<p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Sed posuere consectetur est at lobortis. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Curabitur blandit tempus porttitor. Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</p>
+				<p>Sed posuere consectetur est at lobortis. Sed posuere consectetur est at lobortis. Donec sed odio dui. Donec id elit non mi porta gravida at eget metus.</p>
+				<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Vestibulum id ligula porta felis euismod semper.</p>
+				<p>Cras mattis consectetur purus sit amet fermentum. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+				<p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Sed posuere consectetur est at lobortis. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Curabitur blandit tempus porttitor. Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</p>
+				<p>Cras mattis consectetur purus sit amet fermentum. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+				<p>Sed posuere consectetur est at lobortis. Sed posuere consectetur est at lobortis. Donec sed odio dui. Donec id elit non mi porta gravida at eget metus.</p>
+			</div>
 		</div>
 	</div>
 

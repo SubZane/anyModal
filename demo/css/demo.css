@@ -94,13 +94,46 @@ a.btn-primary:hover {
   color: #fff;
 }
 
+.buttons {
+  padding-top: 20px;
+}
+a.btn-effect {
+  background-color: transparent;
+  border: solid 2px #D65C30;
+  color: #D65C30;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-weight: 600;
+  font-size: 13px;
+  text-transform: uppercase;
+  margin-right: 15px;
+  margin-bottom: 15px;
+}
+a.btn-effect:link,
+a.btn-effect:visited {
+  background-color: transparent;
+  border: solid 2px #D65C30;
+  color: #D65C30;
+}
+a.btn-effect:active {
+  background-color: #D65C30;
+  color: #fff;
+  .box-shadow(none);
+}
+a.btn-effect:hover {
+  background-color: #D65C30;
+  color: #fff;
+}
+
 /* footer */
 footer {
   margin-top: 40px;
 }
 
 h3 {
-  
+
 }
 
 footer h3 {
