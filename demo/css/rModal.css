@@ -66,116 +66,116 @@
 
 /* Individual modal styles with animations/transitions */
 /* Effect 1: Fade in and scale up */
-.md-effect-1 .md-content {
+.rm-effect-1 .rm-content {
   -webkit-transform: scale(0.7);
           transform: scale(0.7);
   opacity: 0;
   transition: all 0.3s; }
 
-.md-show.md-effect-1 .md-content {
+.rm-show.rm-effect-1 .rm-content {
   -webkit-transform: scale(1);
           transform: scale(1);
   opacity: 1; }
 
 /* Effect 2: Slide from the right */
-.md-effect-2 .md-content {
+.rm-effect-2 .rm-content {
   -webkit-transform: translateX(20%);
           transform: translateX(20%);
   opacity: 0;
   transition: all 0.3s cubic-bezier(0.25, 0.5, 0.5, 0.9); }
 
-.md-show.md-effect-2 .md-content {
+.rm-show.rm-effect-2 .rm-content {
   -webkit-transform: translateX(0);
           transform: translateX(0);
   opacity: 1; }
 
 /* Effect 3: Slide from the bottom */
-.md-effect-3 .md-content {
+.rm-effect-3 .rm-content {
   -webkit-transform: translateY(20%);
           transform: translateY(20%);
   opacity: 0;
   transition: all 0.3s; }
 
-.md-show.md-effect-3 .md-content {
+.rm-show.rm-effect-3 .rm-content {
   -webkit-transform: translateY(0);
           transform: translateY(0);
   opacity: 1; }
 
 /* Effect 4: Newspaper */
-.md-effect-4 .md-content {
+.rm-effect-4 .rm-content {
   -webkit-transform: scale(0) rotate(720deg);
           transform: scale(0) rotate(720deg);
   opacity: 0; }
 
-.md-show.md-effect-4 ~ .md-overlay,
-.md-effect-4 .md-content {
+.rm-show.rm-effect-4 ~ .rm-overlay,
+.rm-effect-4 .rm-content {
   transition: all 0.3s; }
 
-.md-show.md-effect-4 .md-content {
+.rm-show.rm-effect-4 .rm-content {
   -webkit-transform: scale(1) rotate(0deg);
           transform: scale(1) rotate(0deg);
   opacity: 1; }
 
 /* Effect 5: fall */
-.md-effect-5.md-modal {
+.rm-effect-5.rm-modal {
   -webkit-perspective: 1300px;
           perspective: 1300px; }
 
-.md-effect-5 .md-content {
+.rm-effect-5 .rm-content {
   -webkit-transform-style: preserve-3d;
           transform-style: preserve-3d;
   -webkit-transform: translateZ(600px) rotateX(20deg);
           transform: translateZ(600px) rotateX(20deg);
   opacity: 0; }
 
-.md-show.md-effect-5 .md-content {
+.rm-show.rm-effect-5 .rm-content {
   transition: all 0.3s ease-in;
   -webkit-transform: translateZ(0px) rotateX(0deg);
           transform: translateZ(0px) rotateX(0deg);
   opacity: 1; }
 
 /* Effect 6: side fall */
-.md-effect-6.md-modal {
+.rm-effect-6.rm-modal {
   -webkit-perspective: 1300px;
           perspective: 1300px; }
 
-.md-effect-6 .md-content {
+.rm-effect-6 .rm-content {
   -webkit-transform-style: preserve-3d;
           transform-style: preserve-3d;
   -webkit-transform: translate(30%) translateZ(600px) rotate(10deg);
           transform: translate(30%) translateZ(600px) rotate(10deg);
   opacity: 0; }
 
-.md-show.md-effect-6 .md-content {
+.rm-show.rm-effect-6 .rm-content {
   transition: all 0.3s ease-in;
   -webkit-transform: translate(0%) translateZ(0) rotate(0deg);
           transform: translate(0%) translateZ(0) rotate(0deg);
   opacity: 1; }
 
 /* Effect 7:  slide and stick to top */
-.md-effect-7 {
+.rm-effect-7 {
   top: 0;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%); }
 
-.md-effect-7 .md-content {
+.rm-effect-7 .rm-content {
   -webkit-transform: translateY(-200%);
           transform: translateY(-200%);
   transition: all .3s;
   opacity: 0; }
 
-.md-show.md-effect-7 .md-content {
+.rm-show.rm-effect-7 .rm-content {
   -webkit-transform: translateY(0%);
           transform: translateY(0%);
   border-radius: 0 0 3px 3px;
   opacity: 1; }
 
 /* Effect 8: 3D flip horizontal */
-.md-effect-8.md-modal {
+.rm-effect-8.rm-modal {
   -webkit-perspective: 1300px;
           perspective: 1300px; }
 
-.md-effect-8 .md-content {
+.rm-effect-8 .rm-content {
   -webkit-transform-style: preserve-3d;
           transform-style: preserve-3d;
   -webkit-transform: rotateY(-70deg);
@@ -183,17 +183,17 @@
   transition: all 0.3s;
   opacity: 0; }
 
-.md-show.md-effect-8 .md-content {
+.rm-show.rm-effect-8 .rm-content {
   -webkit-transform: rotateY(0deg);
           transform: rotateY(0deg);
   opacity: 1; }
 
 /* Effect 9: 3D flip vertical */
-.md-effect-9.md-modal {
+.rm-effect-9.rm-modal {
   -webkit-perspective: 1300px;
           perspective: 1300px; }
 
-.md-effect-9 .md-content {
+.rm-effect-9 .rm-content {
   -webkit-transform-style: preserve-3d;
           transform-style: preserve-3d;
   -webkit-transform: rotateX(-70deg);
@@ -201,17 +201,17 @@
   transition: all 0.3s;
   opacity: 0; }
 
-.md-show.md-effect-9 .md-content {
+.rm-show.rm-effect-9 .rm-content {
   -webkit-transform: rotateX(0deg);
           transform: rotateX(0deg);
   opacity: 1; }
 
 /* Effect 10: 3D sign */
-.md-effect-10.md-modal {
+.rm-effect-10.rm-modal {
   -webkit-perspective: 1300px;
           perspective: 1300px; }
 
-.md-effect-10 .md-content {
+.rm-effect-10 .rm-content {
   -webkit-transform-style: preserve-3d;
           transform-style: preserve-3d;
   -webkit-transform: rotateX(-60deg);
@@ -221,36 +221,36 @@
   opacity: 0;
   transition: all 0.3s; }
 
-.md-show.md-effect-10 .md-content {
+.rm-show.rm-effect-10 .rm-content {
   -webkit-transform: rotateX(0deg);
           transform: rotateX(0deg);
   opacity: 1; }
 
 /* Effect 11: Super scaled */
-.md-effect-11 .md-content {
+.rm-effect-11 .rm-content {
   -webkit-transform: scale(2);
           transform: scale(2);
   opacity: 0;
   transition: all 0.3s; }
 
-.md-show.md-effect-11 .md-content {
+.rm-show.rm-effect-11 .rm-content {
   -webkit-transform: scale(1);
           transform: scale(1);
   opacity: 1; }
 
 /* Effect 13: 3D slit */
-.md-effect-13.md-modal {
+.rm-effect-13.rm-modal {
   -webkit-perspective: 1300px;
           perspective: 1300px; }
 
-.md-effect-13 .md-content {
+.rm-effect-13 .rm-content {
   -webkit-transform-style: preserve-3d;
           transform-style: preserve-3d;
   -webkit-transform: translateZ(-3000px) rotateY(90deg);
           transform: translateZ(-3000px) rotateY(90deg);
   opacity: 0; }
 
-.md-show.md-effect-13 .md-content {
+.rm-show.rm-effect-13 .rm-content {
   -webkit-animation: slit 0.3s forwards ease-out;
           animation: slit 0.3s forwards ease-out; }
 
@@ -276,11 +276,11 @@
     opacity: 1; } }
 
 /* Effect 14:  3D Rotate from bottom */
-.md-effect-14.md-modal {
+.rm-effect-14.rm-modal {
   -webkit-perspective: 1300px;
           perspective: 1300px; }
 
-.md-effect-14 .md-content {
+.rm-effect-14 .rm-content {
   -webkit-transform-style: preserve-3d;
           transform-style: preserve-3d;
   -webkit-transform: translateY(100%) rotateX(90deg);
@@ -290,17 +290,17 @@
   opacity: 0;
   transition: all 0.3s ease-out; }
 
-.md-show.md-effect-14 .md-content {
+.rm-show.rm-effect-14 .rm-content {
   -webkit-transform: translateY(0%) rotateX(0deg);
           transform: translateY(0%) rotateX(0deg);
   opacity: 1; }
 
 /* Effect 15:  3D Rotate in from left */
-.md-effect-15.md-modal {
+.rm-effect-15.rm-modal {
   -webkit-perspective: 1300px;
           perspective: 1300px; }
 
-.md-effect-15 .md-content {
+.rm-effect-15 .rm-content {
   -webkit-transform-style: preserve-3d;
           transform-style: preserve-3d;
   -webkit-transform: translateZ(100px) translateX(-30%) rotateY(90deg);
@@ -310,34 +310,34 @@
   opacity: 0;
   transition: all 0.3s; }
 
-.md-show.md-effect-15 .md-content {
+.rm-show.rm-effect-15 .rm-content {
   -webkit-transform: translateZ(0px) translateX(0%) rotateY(0deg);
           transform: translateZ(0px) translateX(0%) rotateY(0deg);
   opacity: 1; }
 
 /* Effect 16:  Blur */
-.md-show.md-effect-16 ~ .md-overlay {
+.rm-show.rm-effect-16 ~ .rm-overlay {
   background: rgba(180, 46, 32, 0.5); }
 
-.md-show.md-effect-16 ~ .container {
+.rm-show.rm-effect-16 ~ .container {
   -webkit-filter: blur(3px);
           filter: blur(3px); }
 
-.md-effect-16 .md-content {
+.rm-effect-16 .rm-content {
   -webkit-transform: translateY(-5%);
           transform: translateY(-5%);
   opacity: 0; }
 
-.md-show.md-effect-16 ~ .container,
-.md-effect-16 .md-content {
+.rm-show.rm-effect-16 ~ .container,
+.rm-effect-16 .rm-content {
   transition: all 0.3s; }
 
-.md-show.md-effect-16 .md-content {
+.rm-show.rm-effect-16 .rm-content {
   -webkit-transform: translateY(0);
           transform: translateY(0);
   opacity: 1; }
 
-.rModal-overlay {
+.rm-overlay {
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
   position: fixed;
@@ -349,7 +349,7 @@
   display: none;
   background: #2B2E38;
   background: rgba(43, 46, 56, 0.9); }
-  .rModal-overlay.fadein {
+  .rm-overlay.fadein {
     display: block;
     -webkit-animation: fadein 0.3s ease-in;
             animation: fadein 0.3s ease-in;
@@ -357,7 +357,7 @@
             animation-fill-mode: forwards;
     -webkit-animation-iteration-count: 1;
             animation-iteration-count: 1; }
-  .rModal-overlay.fadeout {
+  .rm-overlay.fadeout {
     -webkit-animation: fadeout 0.3s ease-in;
             animation: fadeout 0.3s ease-in;
     -webkit-animation-fill-mode: forwards;
@@ -366,73 +366,77 @@
             animation-iteration-count: 1;
     opacity: 1; }
 
-html.rModal-locked, body.rModal-locked {
+html.rm-modal-locked, body.rm-modal-locked {
   overflow: hidden; }
 
-.md-modal {
+.rm-modal {
   position: fixed;
   border-radius: 5px;
-  top: 50%;
-  left: 50%;
-  width: 80%;
-  max-width: 600px;
-  height: 90%;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: -60px;
+  max-width: 700px;
   z-index: 2000;
   visibility: hidden;
   -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
-  -webkit-transform: translateX(-50%) translateY(-50%);
-          transform: translateX(-50%) translateY(-50%); }
+          backface-visibility: hidden; }
+  .rm-modal .rm-content {
+    color: #fff;
+    background: #e74c3c;
+    margin: 0 auto;
+    -webkit-overflow-scrolling: touch;
+    max-width: 600px;
+    overflow: hidden;
+    position: absolute;
+    bottom: 70px;
+    top: 0;
+    left: 0;
+    right: 0;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px; }
+    .rm-modal .rm-content .rm-header {
+      opacity: 0.8;
+      background: #D54637;
+      border-radius: 5px 5px 0 0;
+      height: 60px;
+      position: relative; }
+      .rm-modal .rm-content .rm-header h3 {
+        margin: 0;
+        padding: 0.4em;
+        text-align: center;
+        font-size: 2.4em;
+        font-weight: 300; }
+      .rm-modal .rm-content .rm-header .rm-cross {
+        position: absolute;
+        right: 20px;
+        top: 20px; }
+    .rm-modal .rm-content .rm-inner {
+      overflow-y: auto;
+      padding: 15px 40px 30px;
+      margin: 0;
+      font-weight: 300;
+      font-size: 1.15em;
+      position: absolute;
+      bottom: 0;
+      top: 60px; }
+      .rm-modal .rm-content .rm-inner p {
+        margin: 0;
+        padding: 10px 0; }
 
-.md-show {
+.rm-show {
   opacity: 1;
   visibility: visible; }
 
-/* Content styles */
-.md-content {
-  color: #fff;
-  background: #e74c3c;
-  margin: 0 auto;
-  -webkit-overflow-scrolling: touch;
-  max-width: 600px;
-  overflow: hidden;
-  position: absolute;
-  bottom: 70px;
-  top: 0;
-  left: 0;
-  right: 0; }
-  .md-content .md-header {
-    opacity: 0.8;
-    background: #D54637;
-    border-radius: 5px 5px 0 0;
-    height: 60px;
-    position: relative; }
-    .md-content .md-header h3 {
-      margin: 0;
-      padding: 0.4em;
-      text-align: center;
-      font-size: 2.4em;
-      font-weight: 300; }
-    .md-content .md-header .md-cross {
-      position: absolute;
-      right: 20px;
-      top: 20px; }
-  .md-content .md-inner {
-    overflow-y: auto;
-    padding: 15px 40px 30px;
-    margin: 0;
-    font-weight: 300;
-    font-size: 1.15em;
-    position: absolute;
-    bottom: 0;
-    top: 60px; }
-    .md-content .md-inner p {
-      margin: 0;
-      padding: 10px 0; }
-
-.md-animation-done {
+.rm-animation-done {
   overflow-y: hidden; }
 
-@media (min-width: 480px) {
-  .md-modal {
-    max-width: 600px; } }
+@media (min-width: 768px) {
+  .rm-modal {
+    top: 50%;
+    left: 50%;
+    width: 80%;
+    max-width: 600px;
+    height: 90%;
+    -webkit-transform: translateX(-50%) translateY(-46%);
+            transform: translateX(-50%) translateY(-46%); } }

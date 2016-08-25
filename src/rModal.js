@@ -23,11 +23,10 @@ var rModal = (function () {
 		options = extend(defaults, settings || {});
 
 		detectScrollbarWidth();
-
-		document.querySelector('body').innerHTML += '<div class="rModal-overlay"></div>';
-		overlay = document.querySelector('.rModal-overlay');
+		createOverlay();
 
 		// Prevent scroll if content doesn't need scroll.
+		/*
 		var modals = document.querySelectorAll('.rModal');
 		forEach(modals, function (index, value) {
 			index.addEventListener('touchmove', function (e) {
@@ -36,6 +35,7 @@ var rModal = (function () {
 				}
 			});
 		});
+		*/
 
 		var rmodals = document.querySelectorAll('[data-modal]');
 		forEach(rmodals, function (index, value) {
@@ -51,13 +51,15 @@ var rModal = (function () {
 				var temp = modal.element.offsetHeight; // no need to store this anywhere, the reference is enough
 				modal.element.style.display='';
 
+				/*
 				if (modal.element.hasAttribute('data-modaldata')) {
 					modal.isFed = true;
 					modal.ajaxdataurl = modal.element.getAttribute('data-modaldata');
 				} else {
 					modal.isFed = false;
 				}
-
+				*/
+			
 				// Close the modal if overlay behind is touched/clicked. Not working at the moment.
 				('click touchmove touchend touchleave touchcancel'.split(' ')).forEach(function (event) {
 					overlay.addEventListener(event, function (e) {
@@ -81,6 +83,11 @@ var rModal = (function () {
 		});
 
   };
+
+	var createOverlay = function () {
+		document.querySelector('body').innerHTML += '<div class="rm-overlay"></div>';
+		overlay = document.querySelector('.rm-overlay');
+	};
 
 	var isMobileBrowser = function () {
 		if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
@@ -170,44 +177,46 @@ var rModal = (function () {
 		if (hasVerticalScroll() === true && isMobileBrowser() === false) {
 			document.querySelector('body').style.marginRight = scrollbarWidth + 'px';
 		}
-		document.querySelector('body').classList.add('rModal-locked');
-		document.querySelector('html').classList.add('rModal-locked');
+		document.querySelector('body').classList.add('rm-modal-locked');
+		document.querySelector('html').classList.add('rm-modal-locked');
 		overlay.classList.add('fadein');
-
+		/*
 		if (modal.isFed) {
 			loadContent();
 		}
-		modal.element.classList.add('rModal-active');
-		modal.element.classList.add('md-show');
+		*/
+		modal.element.classList.add('rm-show');
 
 		setTimeout(function () {
-			modal.element.classList.add('md-animation-done');
+			modal.element.classList.add('rm-animation-done');
 		}, options.transitiontime);
 
-		modal.element.querySelector('.md-cross').addEventListener('click', function(e) {
+		modal.element.querySelector('.rm-cross').addEventListener('click', function(e) {
 			e.preventDefault();
 			close();
 		});
 	};
 
 	var close = function () {
-		modal.element.classList.remove('md-show');
-		modal.element.classList.remove('md-animation-done');
+		modal.element.classList.remove('rm-show');
+		modal.element.classList.remove('rm-animation-done');
 
 		overlay.classList.add('fadeout');
 		// let's wait for the neat animations to finish!
 		setTimeout(function () {
 			overlay.classList.remove('fadein');
 			overlay.classList.remove('fadeout');
-			document.querySelector('body').classList.remove('rModal-locked');
-			document.querySelector('html').classList.remove('rModal-locked');
+			document.querySelector('body').classList.remove('rm-modal-locked');
+			document.querySelector('html').classList.remove('rm-modal-locked');
 			/*
 			If the content is fetched with ajax, we need to remove the content div in order to avoid duplicate content.
 			An alternative would be not to fetch content on the second click.
 			*/
+			/*
 			if (modal.isFed) {
 				modal.element.querySelector('.rModal .content').remove();
 			}
+			*/
 			document.querySelector('body').style.marginRight = '';
 			modal.element.classList.remove(modal.effect);
 		}, options.transitiontime);

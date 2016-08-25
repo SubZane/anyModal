@@ -1,4 +1,4 @@
-/*! rModal - v1.0.0 - 2016-08-24
+/*! rModal - v1.0.0 - 2016-08-25
 * https://github.com/SubZane/rmodal
 * Copyright (c) 2016 Andreas Norman; Licensed MIT */
 var rModal = (function () {
@@ -27,10 +27,11 @@ var rModal = (function () {
 
 		detectScrollbarWidth();
 
-		document.querySelector('body').innerHTML += '<div class="rModal-overlay"></div>';
-		overlay = document.querySelector('.rModal-overlay');
+		document.querySelector('body').innerHTML += '<div class="rm-overlay"></div>';
+		overlay = document.querySelector('.rm-overlay');
 
 		// Prevent scroll if content doesn't need scroll.
+		/*
 		var modals = document.querySelectorAll('.rModal');
 		forEach(modals, function (index, value) {
 			index.addEventListener('touchmove', function (e) {
@@ -39,6 +40,7 @@ var rModal = (function () {
 				}
 			});
 		});
+		*/
 
 		var rmodals = document.querySelectorAll('[data-modal]');
 		forEach(rmodals, function (index, value) {
@@ -173,44 +175,46 @@ var rModal = (function () {
 		if (hasVerticalScroll() === true && isMobileBrowser() === false) {
 			document.querySelector('body').style.marginRight = scrollbarWidth + 'px';
 		}
-		document.querySelector('body').classList.add('rModal-locked');
-		document.querySelector('html').classList.add('rModal-locked');
+		document.querySelector('body').classList.add('rm-modal-locked');
+		document.querySelector('html').classList.add('rm-modal-locked');
 		overlay.classList.add('fadein');
-
+		/*
 		if (modal.isFed) {
 			loadContent();
 		}
-		modal.element.classList.add('rModal-active');
-		modal.element.classList.add('md-show');
+		*/
+		modal.element.classList.add('rm-show');
 
 		setTimeout(function () {
-			modal.element.classList.add('md-animation-done');
+			modal.element.classList.add('rm-animation-done');
 		}, options.transitiontime);
 
-		modal.element.querySelector('.md-cross').addEventListener('click', function(e) {
+		modal.element.querySelector('.rm-cross').addEventListener('click', function(e) {
 			e.preventDefault();
 			close();
 		});
 	};
 
 	var close = function () {
-		modal.element.classList.remove('md-show');
-		modal.element.classList.remove('md-animation-done');
+		modal.element.classList.remove('rm-show');
+		modal.element.classList.remove('rm-animation-done');
 
 		overlay.classList.add('fadeout');
 		// let's wait for the neat animations to finish!
 		setTimeout(function () {
 			overlay.classList.remove('fadein');
 			overlay.classList.remove('fadeout');
-			document.querySelector('body').classList.remove('rModal-locked');
-			document.querySelector('html').classList.remove('rModal-locked');
+			document.querySelector('body').classList.remove('rm-modal-locked');
+			document.querySelector('html').classList.remove('rm-modal-locked');
 			/*
 			If the content is fetched with ajax, we need to remove the content div in order to avoid duplicate content.
 			An alternative would be not to fetch content on the second click.
 			*/
+			/*
 			if (modal.isFed) {
 				modal.element.querySelector('.rModal .content').remove();
 			}
+			*/
 			document.querySelector('body').style.marginRight = '';
 			modal.element.classList.remove(modal.effect);
 		}, options.transitiontime);
