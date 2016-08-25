@@ -59,7 +59,7 @@ var rModal = (function () {
 					modal.isFed = false;
 				}
 				*/
-			
+
 				// Close the modal if overlay behind is touched/clicked. Not working at the moment.
 				('click touchmove touchend touchleave touchcancel'.split(' ')).forEach(function (event) {
 					overlay.addEventListener(event, function (e) {

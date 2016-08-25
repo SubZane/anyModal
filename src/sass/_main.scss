@@ -42,7 +42,6 @@ html.rm-modal-locked, body.rm-modal-locked {
   	color: #fff;
   	background: $modalColor;
   	margin: 0 auto;
-    -webkit-overflow-scrolling: touch;
     max-width: 600px;
     overflow: hidden;
     position: absolute;
@@ -95,6 +94,9 @@ html.rm-modal-locked, body.rm-modal-locked {
 
 .rm-animation-done {
   overflow-y: hidden;
+  .rm-content {
+    -webkit-overflow-scrolling: touch;
+  }
 }
 
 @media (min-width: $screen-xs-min) {

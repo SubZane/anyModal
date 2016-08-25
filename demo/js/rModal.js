@@ -26,9 +26,7 @@ var rModal = (function () {
 		options = extend(defaults, settings || {});
 
 		detectScrollbarWidth();
-
-		document.querySelector('body').innerHTML += '<div class="rm-overlay"></div>';
-		overlay = document.querySelector('.rm-overlay');
+		createOverlay();
 
 		// Prevent scroll if content doesn't need scroll.
 		/*
@@ -56,12 +54,14 @@ var rModal = (function () {
 				var temp = modal.element.offsetHeight; // no need to store this anywhere, the reference is enough
 				modal.element.style.display='';
 
+				/*
 				if (modal.element.hasAttribute('data-modaldata')) {
 					modal.isFed = true;
 					modal.ajaxdataurl = modal.element.getAttribute('data-modaldata');
 				} else {
 					modal.isFed = false;
 				}
+				*/
 
 				// Close the modal if overlay behind is touched/clicked. Not working at the moment.
 				('click touchmove touchend touchleave touchcancel'.split(' ')).forEach(function (event) {
@@ -86,6 +86,11 @@ var rModal = (function () {
 		});
 
   };
+
+	var createOverlay = function () {
+		document.querySelector('body').innerHTML += '<div class="rm-overlay"></div>';
+		overlay = document.querySelector('.rm-overlay');
+	};
 
 	var isMobileBrowser = function () {
 		if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
