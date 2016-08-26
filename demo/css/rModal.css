@@ -345,7 +345,9 @@
     opacity: 1; }
 
 html.rm-modal-locked, body.rm-modal-locked {
-  overflow: hidden; }
+  height: 100%;
+  width: 100%;
+  overflow: auto; }
 
 .rm-modal {
   position: fixed;
@@ -407,7 +409,7 @@ html.rm-modal-locked, body.rm-modal-locked {
 
 .rm-animation-done {
   overflow-y: hidden; }
-  .rm-animation-done .rm-content {
+  .rm-animation-done .rm-inner {
     -webkit-overflow-scrolling: touch; }
 
 @media (min-width: 768px) {
