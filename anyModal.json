@@ -3,7 +3,7 @@
 	"title": "anyModal",
 	"description": "Responsive modal windows",
 	"version": "1.0.0",
-	"homepage": "https://github.com/SubZane/rmodal",
+	"homepage": "https://github.com/SubZane/anymodal",
 	"author": {
 		"name": "Andreas Norman",
 		"email": "an@andreasnorman.se",
@@ -11,13 +11,13 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/SubZane/rmodal.git"
+		"url": "https://github.com/SubZane/anymodal.git"
 	},
-	"bugs": "https://github.com/SubZane/rmodal/issues",
+	"bugs": "https://github.com/SubZane/anymodal/issues",
 	"licenses": [
 		{
 			"type": "MIT",
-			"url": "https://github.com/SubZane/rmodal/blob/master/LICENSE-MIT"
+			"url": "https://github.com/SubZane/anymodal/blob/master/LICENSE-MIT"
 		}
 	],
 	"dependencies": {
