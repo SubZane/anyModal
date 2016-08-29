@@ -1,4 +1,4 @@
-/*! rModal - v1.0.0 - 2016-08-25
+/*! rModal - v1.0.0 - 2016-08-26
 * https://github.com/SubZane/rmodal
 * Copyright (c) 2016 Andreas Norman; Licensed MIT */
 var rModal = (function () {

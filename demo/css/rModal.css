@@ -347,7 +347,8 @@
 html.rm-modal-locked, body.rm-modal-locked {
   height: 100%;
   width: 100%;
-  overflow: auto; }
+  overflow: auto;
+  position: fixed; }
 
 .rm-modal {
   position: fixed;
