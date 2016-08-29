@@ -1,6 +1,6 @@
-rModal v1.0.0
+anyModal v1.0.0
 =======
-rModal is a responsive solution for modal windows written in javascript. This new version is written in vanilla JavaScript and has no other dependencies.
+anyModal is a responsive solution for modal windows written in javascript. This new version is written in vanilla JavaScript and has no other dependencies.
 
 ##Features
 * Responsive modal windows. Works great on desktop computers as well on smart phones.
@@ -9,21 +9,21 @@ rModal is a responsive solution for modal windows written in javascript. This ne
 
 ##Installation
 ```
-bower install rModal --save
+bower install anyModal --save
 ```
 
 ###Setup
 ```html
-<!-- You'll need to include rModal of course! -->
-<script src="rModal.js"></script>
+<!-- You'll need to include anyModal of course! -->
+<script src="anyModal.js"></script>
 
 <!-- Some basic CSS is required of course -->
-<link rel="stylesheet" href="css/rModal.css">
+<link rel="stylesheet" href="css/anyModal.css">
 ```
 ##Usage
 ```javascript
 document.addEventListener("DOMContentLoaded", function(event) {
-  rModal.init({
+  anyModal.init({
     transitiontime: 300,
     redrawOnResize: true
   });
@@ -47,7 +47,7 @@ This could be your typical script setup.
 Add the following javscript to execute the script on load.
 ```javascript
 document.addEventListener("DOMContentLoaded", function(event) {
-  rModal.init();
+  anyModal.init();
 });
 ```
 

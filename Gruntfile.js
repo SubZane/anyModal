@@ -5,7 +5,7 @@ module.exports = function (grunt) {
 	// Project configuration.
 	grunt.initConfig({
 		// Metadata.
-		pkg: grunt.file.readJSON('rModal.json'),
+		pkg: grunt.file.readJSON('anyModal.json'),
 		banner: '/*! <%= pkg.title || pkg.name %> - v<%= pkg.version %> - ' +
 			'<%= grunt.template.today("yyyy-mm-dd") %>\n' +
 			'<%= pkg.homepage ? "* " + pkg.homepage + "\\n" : "" %>' +
@@ -22,7 +22,7 @@ module.exports = function (grunt) {
 				]
 			},
 			dist: {
-				src: 'demo/css/rModal.css'
+				src: 'demo/css/anyModal.css'
 			}
 		},
 		concat: {
@@ -51,7 +51,7 @@ module.exports = function (grunt) {
 			},
 			dist: {
 				files: {
-					'demo/css/rModal.css': 'src/sass/rModal.scss'
+					'demo/css/anyModal.css': 'src/sass/anyModal.scss'
 				}
 			}
 		},
@@ -67,7 +67,7 @@ module.exports = function (grunt) {
 				options: {
 					jshintrc: 'src/.jshintrc'
 				},
-				src: 'src/rModal.js'
+				src: 'src/anyModal.js'
 			},
 		},
 		watch: {
@@ -106,9 +106,9 @@ module.exports = function (grunt) {
 					'description': 'description',
 				}
 			},
-			rModal: {
+			anyModal: {
 				src: 'package.json', // where to read from
-				dest: 'rModal.json', // where to write to
+				dest: 'anyModal.json', // where to write to
 				// the fields to update, as a String Grouping
 				fields: {
 					'name': 'name',
@@ -134,6 +134,6 @@ module.exports = function (grunt) {
 
 	// Default task.
 	grunt.registerTask('default', ['jshint', 'clean', 'sass', 'concat', 'uglify', 'postcss', 'copy', 'version']);
-	grunt.registerTask('version', ['update_json:bower', 'update_json:rModal']);
+	grunt.registerTask('version', ['update_json:bower', 'update_json:anyModal']);
 
 };

@@ -1,4 +1,7 @@
-var rModal = (function () {
+/*! anyModal - v1.0.0 - 2016-08-29
+* https://github.com/SubZane/rmodal
+* Copyright (c) 2016 Andreas Norman; Licensed MIT */
+var anyModal = (function () {
 	var innerHeight = document.documentElement.clientHeight;
 	var overlay;
 	var scrollbarWidth;
@@ -85,8 +88,8 @@ var rModal = (function () {
   };
 
 	var createOverlay = function () {
-		document.querySelector('body').innerHTML += '<div class="rm-overlay"></div>';
-		overlay = document.querySelector('.rm-overlay');
+		document.querySelector('body').innerHTML += '<div class="am-overlay"></div>';
+		overlay = document.querySelector('.am-overlay');
 	};
 
 	var isMobileBrowser = function () {
@@ -177,37 +180,37 @@ var rModal = (function () {
 		if (hasVerticalScroll() === true && isMobileBrowser() === false) {
 			document.querySelector('body').style.marginRight = scrollbarWidth + 'px';
 		}
-		document.querySelector('body').classList.add('rm-modal-locked');
-		document.querySelector('html').classList.add('rm-modal-locked');
+		document.querySelector('body').classList.add('am-modal-locked');
+		document.querySelector('html').classList.add('am-modal-locked');
 		overlay.classList.add('fadein');
 		/*
 		if (modal.isFed) {
 			loadContent();
 		}
 		*/
-		modal.element.classList.add('rm-show');
+		modal.element.classList.add('am-show');
 
 		setTimeout(function () {
-			modal.element.classList.add('rm-animation-done');
+			modal.element.classList.add('am-animation-done');
 		}, options.transitiontime);
 
-		modal.element.querySelector('.rm-cross').addEventListener('click', function(e) {
+		modal.element.querySelector('.am-cross').addEventListener('click', function(e) {
 			e.preventDefault();
 			close();
 		});
 	};
 
 	var close = function () {
-		modal.element.classList.remove('rm-show');
-		modal.element.classList.remove('rm-animation-done');
+		modal.element.classList.remove('am-show');
+		modal.element.classList.remove('am-animation-done');
 
 		overlay.classList.add('fadeout');
 		// let's wait for the neat animations to finish!
 		setTimeout(function () {
 			overlay.classList.remove('fadein');
 			overlay.classList.remove('fadeout');
-			document.querySelector('body').classList.remove('rm-modal-locked');
-			document.querySelector('html').classList.remove('rm-modal-locked');
+			document.querySelector('body').classList.remove('am-modal-locked');
+			document.querySelector('html').classList.remove('am-modal-locked');
 			/*
 			If the content is fetched with ajax, we need to remove the content div in order to avoid duplicate content.
 			An alternative would be not to fetch content on the second click.

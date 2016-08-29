@@ -1,12 +1,12 @@
 {
-	"name": "rModal",
+	"name": "anyModal",
 	"version": "1.0.0",
-	"homepage": "http://www.andreasnorman.com/rModal/",
+	"homepage": "http://www.andreasnorman.com/anyModal/",
 	"authors": [
 		"Andreas Norman <an@andreasnorman.se>"
 	],
 	"description": "Responsive modal windows",
-	"main": "dist/rModal.min.js",
+	"main": "dist/anyModal.min.js",
 	"keywords": [
 		"navigation",
 		"mobile",
@@ -22,5 +22,5 @@
 		"test",
 		"tests"
 	],
-	"title": "rModal"
+	"title": "anyModal"
 }
