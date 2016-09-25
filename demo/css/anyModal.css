@@ -1,62 +1,26 @@
-@-webkit-keyframes zoomin {
-  0% {
-    opacity: 0;
-    -webkit-transform: scale(0);
-            transform: scale(0); }
-  30% {
-    opacity: 0; }
-  100% {
-    bottom: 0; } }
-
 @keyframes zoomin {
   0% {
     opacity: 0;
-    -webkit-transform: scale(0);
-            transform: scale(0); }
+    transform: scale(0); }
   30% {
     opacity: 0; }
   100% {
     bottom: 0; } }
 
-@-webkit-keyframes zoomout {
-  0% {
-    -webkit-transform: scale(1);
-            transform: scale(1); }
-  90% {
-    -webkit-transform: scale(0);
-            transform: scale(0); }
-  100% {
-    opacity: 0;
-    display: none; } }
-
 @keyframes zoomout {
   0% {
-    -webkit-transform: scale(1);
-            transform: scale(1); }
+    transform: scale(1); }
   90% {
-    -webkit-transform: scale(0);
-            transform: scale(0); }
+    transform: scale(0); }
   100% {
     opacity: 0;
     display: none; } }
-
-@-webkit-keyframes fadein {
-  0% {
-    opacity: 0; }
-  100% {
-    opacity: 1; } }
 
 @keyframes fadein {
   0% {
     opacity: 0; }
   100% {
     opacity: 1; } }
-
-@-webkit-keyframes fadeout {
-  0% {
-    opacity: 1; }
-  100% {
-    opacity: 0; } }
 
 @keyframes fadeout {
   0% {
@@ -67,44 +31,37 @@
 /* Individual modal styles with animations/transitions */
 /* Effect 1: Fade in and scale up */
 .am-effect-1 .am-content {
-  -webkit-transform: scale(0.7);
-          transform: scale(0.7);
+  transform: scale(0.7);
   opacity: 0;
   transition: all 0.3s; }
 
 .am-show.am-effect-1 .am-content {
-  -webkit-transform: scale(1);
-          transform: scale(1);
+  transform: scale(1);
   opacity: 1; }
 
 /* Effect 2: Slide from the right */
 .am-effect-2 .am-content {
-  -webkit-transform: translateX(20%);
-          transform: translateX(20%);
+  transform: translateX(20%);
   opacity: 0;
   transition: all 0.3s cubic-bezier(0.25, 0.5, 0.5, 0.9); }
 
 .am-show.am-effect-2 .am-content {
-  -webkit-transform: translateX(0);
-          transform: translateX(0);
+  transform: translateX(0);
   opacity: 1; }
 
 /* Effect 3: Slide from the bottom */
 .am-effect-3 .am-content {
-  -webkit-transform: translateY(20%);
-          transform: translateY(20%);
+  transform: translateY(20%);
   opacity: 0;
   transition: all 0.3s; }
 
 .am-show.am-effect-3 .am-content {
-  -webkit-transform: translateY(0);
-          transform: translateY(0);
+  transform: translateY(0);
   opacity: 1; }
 
 /* Effect 4: Newspaper */
 .am-effect-4 .am-content {
-  -webkit-transform: scale(0) rotate(720deg);
-          transform: scale(0) rotate(720deg);
+  transform: scale(0) rotate(720deg);
   opacity: 0; }
 
 .am-show.am-effect-4 ~ .am-overlay,
@@ -112,207 +69,154 @@
   transition: all 0.3s; }
 
 .am-show.am-effect-4 .am-content {
-  -webkit-transform: scale(1) rotate(0deg);
-          transform: scale(1) rotate(0deg);
+  transform: scale(1) rotate(0deg);
   opacity: 1; }
 
 /* Effect 5: fall */
 .am-effect-5.am-modal {
-  -webkit-perspective: 1300px;
-          perspective: 1300px; }
+  perspective: 1300px; }
 
 .am-effect-5 .am-content {
-  -webkit-transform-style: preserve-3d;
-          transform-style: preserve-3d;
-  -webkit-transform: translateZ(600px) rotateX(20deg);
-          transform: translateZ(600px) rotateX(20deg);
+  transform-style: preserve-3d;
+  transform: translateZ(600px) rotateX(20deg);
   opacity: 0; }
 
 .am-show.am-effect-5 .am-content {
   transition: all 0.3s ease-in;
-  -webkit-transform: translateZ(0px) rotateX(0deg);
-          transform: translateZ(0px) rotateX(0deg);
+  transform: translateZ(0px) rotateX(0deg);
   opacity: 1; }
 
 /* Effect 6: side fall */
 .am-effect-6.am-modal {
-  -webkit-perspective: 1300px;
-          perspective: 1300px; }
+  perspective: 1300px; }
 
 .am-effect-6 .am-content {
-  -webkit-transform-style: preserve-3d;
-          transform-style: preserve-3d;
-  -webkit-transform: translate(30%) translateZ(600px) rotate(10deg);
-          transform: translate(30%) translateZ(600px) rotate(10deg);
+  transform-style: preserve-3d;
+  transform: translate(30%) translateZ(600px) rotate(10deg);
   opacity: 0; }
 
 .am-show.am-effect-6 .am-content {
   transition: all 0.3s ease-in;
-  -webkit-transform: translate(0%) translateZ(0) rotate(0deg);
-          transform: translate(0%) translateZ(0) rotate(0deg);
+  transform: translate(0%) translateZ(0) rotate(0deg);
   opacity: 1; }
 
 /* Effect 7:  slide and stick to top */
 .am-effect-7 {
   top: 0;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%); }
+  transform: translateX(-50%); }
 
 .am-effect-7 .am-content {
-  -webkit-transform: translateY(-200%);
-          transform: translateY(-200%);
+  transform: translateY(-200%);
   transition: all .3s;
   opacity: 0; }
 
 .am-show.am-effect-7 .am-content {
-  -webkit-transform: translateY(0%);
-          transform: translateY(0%);
+  transform: translateY(0%);
   border-radius: 0 0 3px 3px;
   opacity: 1; }
 
 /* Effect 8: 3D flip horizontal */
 .am-effect-8.am-modal {
-  -webkit-perspective: 1300px;
-          perspective: 1300px; }
+  perspective: 1300px; }
 
 .am-effect-8 .am-content {
-  -webkit-transform-style: preserve-3d;
-          transform-style: preserve-3d;
-  -webkit-transform: rotateY(-70deg);
-          transform: rotateY(-70deg);
+  transform-style: preserve-3d;
+  transform: rotateY(-70deg);
   transition: all 0.3s;
   opacity: 0; }
 
 .am-show.am-effect-8 .am-content {
-  -webkit-transform: rotateY(0deg);
-          transform: rotateY(0deg);
+  transform: rotateY(0deg);
   opacity: 1; }
 
 /* Effect 9: 3D flip vertical */
 .am-effect-9.am-modal {
-  -webkit-perspective: 1300px;
-          perspective: 1300px; }
+  perspective: 1300px; }
 
 .am-effect-9 .am-content {
-  -webkit-transform-style: preserve-3d;
-          transform-style: preserve-3d;
-  -webkit-transform: rotateX(-70deg);
-          transform: rotateX(-70deg);
+  transform-style: preserve-3d;
+  transform: rotateX(-70deg);
   transition: all 0.3s;
   opacity: 0; }
 
 .am-show.am-effect-9 .am-content {
-  -webkit-transform: rotateX(0deg);
-          transform: rotateX(0deg);
+  transform: rotateX(0deg);
   opacity: 1; }
 
 /* Effect 10: 3D sign */
 .am-effect-10.am-modal {
-  -webkit-perspective: 1300px;
-          perspective: 1300px; }
+  perspective: 1300px; }
 
 .am-effect-10 .am-content {
-  -webkit-transform-style: preserve-3d;
-          transform-style: preserve-3d;
-  -webkit-transform: rotateX(-60deg);
-          transform: rotateX(-60deg);
-  -webkit-transform-origin: 50% 0;
-          transform-origin: 50% 0;
+  transform-style: preserve-3d;
+  transform: rotateX(-60deg);
+  transform-origin: 50% 0;
   opacity: 0;
   transition: all 0.3s; }
 
 .am-show.am-effect-10 .am-content {
-  -webkit-transform: rotateX(0deg);
-          transform: rotateX(0deg);
+  transform: rotateX(0deg);
   opacity: 1; }
 
 /* Effect 11: Super scaled */
 .am-effect-11 .am-content {
-  -webkit-transform: scale(2);
-          transform: scale(2);
+  transform: scale(2);
   opacity: 0;
   transition: all 0.3s; }
 
 .am-show.am-effect-11 .am-content {
-  -webkit-transform: scale(1);
-          transform: scale(1);
+  transform: scale(1);
   opacity: 1; }
 
 /* Effect 13: 3D slit */
 .am-effect-12.am-modal {
-  -webkit-perspective: 1300px;
-          perspective: 1300px; }
+  perspective: 1300px; }
 
 .am-effect-12 .am-content {
-  -webkit-transform-style: preserve-3d;
-          transform-style: preserve-3d;
-  -webkit-transform: translateZ(-3000px) rotateY(90deg);
-          transform: translateZ(-3000px) rotateY(90deg);
+  transform-style: preserve-3d;
+  transform: translateZ(-3000px) rotateY(90deg);
   opacity: 0; }
 
 .am-show.am-effect-12 .am-content {
-  -webkit-animation: slit 0.3s forwards ease-out;
-          animation: slit 0.3s forwards ease-out; }
-
-@-webkit-keyframes slit {
-  50% {
-    -webkit-transform: translateZ(-250px) rotateY(89deg);
-    opacity: .5;
-    -webkit-animation-timing-function: ease-out; }
-  100% {
-    -webkit-transform: translateZ(0) rotateY(0deg);
-    opacity: 1; } }
+  animation: slit 0.3s forwards ease-out; }
 
 @keyframes slit {
   50% {
-    -webkit-transform: translateZ(-250px) rotateY(89deg);
-            transform: translateZ(-250px) rotateY(89deg);
+    transform: translateZ(-250px) rotateY(89deg);
     opacity: 1;
-    -webkit-animation-timing-function: ease-in;
-            animation-timing-function: ease-in; }
+    animation-timing-function: ease-in; }
   100% {
-    -webkit-transform: translateZ(0) rotateY(0deg);
-            transform: translateZ(0) rotateY(0deg);
+    transform: translateZ(0) rotateY(0deg);
     opacity: 1; } }
 
 /* Effect 14:  3D Rotate from bottom */
 .am-effect-13.am-modal {
-  -webkit-perspective: 1300px;
-          perspective: 1300px; }
+  perspective: 1300px; }
 
 .am-effect-13 .am-content {
-  -webkit-transform-style: preserve-3d;
-          transform-style: preserve-3d;
-  -webkit-transform: translateY(100%) rotateX(90deg);
-          transform: translateY(100%) rotateX(90deg);
-  -webkit-transform-origin: 0 100%;
-          transform-origin: 0 100%;
+  transform-style: preserve-3d;
+  transform: translateY(100%) rotateX(90deg);
+  transform-origin: 0 100%;
   opacity: 0;
   transition: all 0.3s ease-out; }
 
 .am-show.am-effect-13 .am-content {
-  -webkit-transform: translateY(0%) rotateX(0deg);
-          transform: translateY(0%) rotateX(0deg);
+  transform: translateY(0%) rotateX(0deg);
   opacity: 1; }
 
 /* Effect 15:  3D Rotate in from left */
 .am-effect-14.am-modal {
-  -webkit-perspective: 1300px;
-          perspective: 1300px; }
+  perspective: 1300px; }
 
 .am-effect-14 .am-content {
-  -webkit-transform-style: preserve-3d;
-          transform-style: preserve-3d;
-  -webkit-transform: translateZ(100px) translateX(-30%) rotateY(90deg);
-          transform: translateZ(100px) translateX(-30%) rotateY(90deg);
-  -webkit-transform-origin: 0 100%;
-          transform-origin: 0 100%;
+  transform-style: preserve-3d;
+  transform: translateZ(100px) translateX(-30%) rotateY(90deg);
+  transform-origin: 0 100%;
   opacity: 0;
   transition: all 0.3s; }
 
 .am-show.am-effect-14 .am-content {
-  -webkit-transform: translateZ(0px) translateX(0%) rotateY(0deg);
-          transform: translateZ(0px) translateX(0%) rotateY(0deg);
+  transform: translateZ(0px) translateX(0%) rotateY(0deg);
   opacity: 1; }
 
 .am-overlay {
@@ -329,25 +233,20 @@
   background: rgba(43, 46, 56, 0.9); }
   .am-overlay.fadein {
     display: block;
-    -webkit-animation: fadein 0.3s ease-in;
-            animation: fadein 0.3s ease-in;
-    -webkit-animation-fill-mode: forwards;
-            animation-fill-mode: forwards;
-    -webkit-animation-iteration-count: 1;
-            animation-iteration-count: 1; }
+    animation: fadein 0.3s ease-in;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1; }
   .am-overlay.fadeout {
-    -webkit-animation: fadeout 0.3s ease-in;
-            animation: fadeout 0.3s ease-in;
-    -webkit-animation-fill-mode: forwards;
-            animation-fill-mode: forwards;
-    -webkit-animation-iteration-count: 1;
-            animation-iteration-count: 1;
+    animation: fadeout 0.3s ease-in;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
     opacity: 1; }
 
 html.am-modal-locked, body.am-modal-locked {
   height: 100%;
   width: 100%;
-  overflow: auto; }
+  overflow: auto;
+  position: fixed; }
 
 .am-modal {
   position: fixed;
@@ -399,6 +298,8 @@ html.am-modal-locked, body.am-modal-locked {
       position: absolute;
       bottom: 0;
       top: 60px; }
+      .am-modal .am-content .am-inner iframe {
+        display: none; }
       .am-modal .am-content .am-inner p {
         margin: 0;
         padding: 10px 0; }
@@ -409,8 +310,10 @@ html.am-modal-locked, body.am-modal-locked {
 
 .am-animation-done {
   overflow-y: hidden; }
-  .am-animation-done .am-inner {
+  .am-animation-done .am-content .am-inner {
     -webkit-overflow-scrolling: touch; }
+    .am-animation-done .am-content .am-inner iframe {
+      display: block; }
 
 @media (min-width: 768px) {
   .am-modal {
@@ -419,5 +322,4 @@ html.am-modal-locked, body.am-modal-locked {
     width: 80%;
     max-width: 600px;
     height: 90%;
-    -webkit-transform: translateX(-50%) translateY(-46%);
-            transform: translateX(-50%) translateY(-46%); } }
+    transform: translateX(-50%) translateY(-46%); } }

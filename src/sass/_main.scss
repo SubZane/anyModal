@@ -27,6 +27,7 @@ html.am-modal-locked, body.am-modal-locked {
   height: 100%;
   width: 100%;
   overflow: auto;
+  position: fixed;
 }
 
 .am-modal {
@@ -81,6 +82,9 @@ html.am-modal-locked, body.am-modal-locked {
       position: absolute;
       bottom: 0;
       top: 60px;
+      iframe {
+        display: none;
+      }
       p {
       	margin: 0;
       	padding: 10px 0;
@@ -96,8 +100,13 @@ html.am-modal-locked, body.am-modal-locked {
 
 .am-animation-done {
   overflow-y: hidden;
-  .am-inner {
-    -webkit-overflow-scrolling: touch;
+  .am-content {
+    .am-inner {
+      -webkit-overflow-scrolling: touch;
+      iframe {
+        display: block;
+      }
+    }
   }
 }
 

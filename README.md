@@ -1,4 +1,4 @@
-anyModal v1.0.0
+anyModal v1.0.1
 =======
 anyModal is a responsive solution for modal windows written in javascript. This new version is written in vanilla JavaScript and has no other dependencies.
 
@@ -89,5 +89,8 @@ Add the following markup for the modal window itself. The ID of the modal window
 ```
 
 ##changelog
+####1.0.1
+* Fixed bug where an iframed video was displayed on Safari iPhone even if the modal was hidden.
+
 ####1.0.0
 * Initial release
