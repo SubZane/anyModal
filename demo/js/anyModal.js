@@ -1,11 +1,23 @@
-/*! anyModal - v1.0.0 - 2016-08-29
-* https://github.com/SubZane/rmodal
-* Copyright (c) 2016 Andreas Norman; Licensed MIT */
-var anyModal = (function () {
-	var innerHeight = document.documentElement.clientHeight;
-	var overlay;
-	var scrollbarWidth;
+/*! anyModal - v1.0.0 - 2017-03-17
+* https://github.com/SubZane/anymodal
+* Copyright (c) 2017 Andreas Norman; Licensed MIT */
+(function (root, factory) {
+	if (typeof define === 'function' && define.amd) {
+		define([], factory(root));
+	} else if (typeof exports === 'object') {
+		module.exports = factory(root);
+	} else {
+		root.anyModal = factory(root);
+	}
+})(typeof global !== 'undefined' ? global : this.window || this.global, function (root) {
 
+	'use strict';
+
+	//
+	// Variables
+	//
+
+	var anyModal = {}; // Object for public APIs
 	// Modal object used to store all modal data for quick access.
 	var modal = {
 		element: null,
@@ -13,79 +25,43 @@ var anyModal = (function () {
 		isFed: false,
 		ajaxdataurl: ''
 	};
+	var supports = !!document.querySelector && !!root.addEventListener; // Feature test
+	var settings;
+	var el;
+	var innerHeight = document.documentElement.clientHeight;
+	var scrollbarWidth;
+	var overlay;
+	// Need to get the topbar height in order to later set the correct height of .anyModal-content
 
-	// Default options.
+	// Default settings
 	var defaults = {
 		transitiontime: 300,
 		redrawOnResize: true,
 		logerrors: false,
+		onInit: function () {},
+		onOpen: function () {},
+		onClose: function () {},
+		onDestroy: function () {}
 	};
 
-  var init = function (settings) {
 
-		options = extend(defaults, settings || {});
+	//
+	// Methods
+	//
 
-		detectScrollbarWidth();
-		createOverlay();
+	var detectScrollbarWidth = function () {
+		// Create the measurement node
+		var scrollDiv = document.createElement('div');
+		scrollDiv.className = 'scrollbar-measure';
+		document.body.appendChild(scrollDiv);
 
-		// Prevent scroll if content doesn't need scroll.
-		/*
-		var modals = document.querySelectorAll('.rModal');
-		forEach(modals, function (index, value) {
-			index.addEventListener('touchmove', function (e) {
-				if (index.scrollHeight <= parseInt(innerHeight, 10)) {
-					e.preventDefault();
-				}
-			});
-		});
-		*/
+		// Get the scrollbar width
+		scrollbarWidth = scrollDiv.offsetWidth - scrollDiv.clientWidth;
+		//console.warn(scrollbarWidth); // Mac:  15
 
-		var rmodals = document.querySelectorAll('[data-modal]');
-		forEach(rmodals, function (index, value) {
-			index.addEventListener('click', function (e) {
-				e.preventDefault();
-				modal.name = index.getAttribute('data-modal');
-				modal.effect = index.getAttribute('data-effect');
-				modal.element = document.querySelector('#' + modal.name);
-				modal.element.classList.add(modal.effect);
-
-				// Force element to apply new css rules
-				modal.element.style.display='none';
-				var temp = modal.element.offsetHeight; // no need to store this anywhere, the reference is enough
-				modal.element.style.display='';
-
-				/*
-				if (modal.element.hasAttribute('data-modaldata')) {
-					modal.isFed = true;
-					modal.ajaxdataurl = modal.element.getAttribute('data-modaldata');
-				} else {
-					modal.isFed = false;
-				}
-				*/
-
-				// Close the modal if overlay behind is touched/clicked. Not working at the moment.
-				('click touchmove touchend touchleave touchcancel'.split(' ')).forEach(function (event) {
-					overlay.addEventListener(event, function (e) {
-						if (e.target === this) {
-							close();
-						}
-					});
-				});
-
-				if (options.redrawOnResize === true) {
-					var resizeTimer;
-					clearTimeout(resizeTimer);
-					resizeTimer = setTimeout(afterWindowResize, 100);
-				}
-
-				window.addEventListener('orientationchange', function() {
-					setHeight();
-				});
-				open();
-			});
-		});
-
-  };
+		// Delete the DIV
+		document.body.removeChild(scrollDiv);
+	};
 
 	var createOverlay = function () {
 		document.querySelector('body').innerHTML += '<div class="am-overlay"></div>';
@@ -107,66 +83,7 @@ var anyModal = (function () {
 		return hasVerticalScrollbar;
 	};
 
-	var createModalWindow = function () {
-	};
-
-	var destroyModalWindow = function (modal_id) {
-	};
-
-	var detectScrollbarWidth = function () {
-		var outer = document.createElement('div');
-		outer.style.visibility = 'hidden';
-		outer.style.width = '100px';
-		outer.style.msOverflowStyle = 'scrollbar'; // needed for WinJS apps
-
-		document.body.appendChild(outer);
-
-		var widthNoScroll = outer.offsetWidth;
-		// force scrollbars
-		outer.style.overflow = 'scroll';
-
-		// add innerdiv
-		var inner = document.createElement('div');
-		inner.style.width = '100%';
-		outer.appendChild(inner);
-
-		var widthWithScroll = inner.offsetWidth;
-
-		// remove divs
-		outer.parentNode.removeChild(outer);
-
-		scrollbarWidth = widthNoScroll - widthWithScroll;
-	};
-
-	var loadContent = function () {
-		var request = new XMLHttpRequest();
-
-		request.open('GET', modal.ajaxdataurl, true);
-
-		request.onload = function () {
-			if (request.status >= 200 && request.status < 400) {
-				// Success!
-				var response = JSON.parse(request.response);
-				var _content = response.content;
-				modal.element.querySelector('.rModal').innerHTML += '<div class="content">'+ _content +'</div>';
-			} else {
-				// We reached our target server, but it returned an error
-				if (options.logerrors) {
-					console.log('An error occured when trying to load data from ' + modal.ajaxdataurl);
-				}
-			}
-		};
-		request.onerror = function () {
-			// There was a connection error of some sort
-			if (options.logerrors) {
-				console.log('A connection error occured when trying to access ' + modal.ajaxdataurl);
-			}
-		};
-		request.send();
-
-	};
-
-	var afterWindowResize = function() {
+	var afterWindowResize = function () {
 		innerHeight = window.innerHeight;
 		setHeight();
 	};
@@ -192,9 +109,9 @@ var anyModal = (function () {
 
 		setTimeout(function () {
 			modal.element.classList.add('am-animation-done');
-		}, options.transitiontime);
+		}, settings.transitiontime);
 
-		modal.element.querySelector('.am-cross').addEventListener('click', function(e) {
+		modal.element.querySelector('.am-cross').addEventListener('click', function (e) {
 			e.preventDefault();
 			close();
 		});
@@ -222,21 +139,21 @@ var anyModal = (function () {
 			*/
 			document.querySelector('body').style.marginRight = '';
 			modal.element.classList.remove(modal.effect);
-		}, options.transitiontime);
+		}, settings.transitiontime);
 	};
 
-
-	/*
-
-	Helper functions
-
-	*/
-
-	var hasClass = function (element, classname) {
-		if (element.classList.contains(classname)) {
-			return true;
-		} else {
-			return false;
+	/**
+	 * Callback hooks.
+	 * Usage: In the defaults object specify a callback function:
+	 * hookName: function() {}
+	 * Then somewhere in the plugin trigger the callback:
+	 * hook('hookName');
+	 */
+	var hook = function (hookName) {
+		if (settings[hookName] !== undefined) {
+			// Call the user defined function.
+			// Scope is set to the jQuery element we are operating on.
+			settings[hookName].call(el);
 		}
 	};
 
@@ -279,13 +196,96 @@ var anyModal = (function () {
 		}
 	};
 
-	/*
+	/**
+	 * Destroy the current initialization.
+	 * @public
+	 */
+	anyModal.destroy = function () {
 
-	Return public methods here
+		// If plugin isn't already initialized, stop
+		if (!settings) {
+			return;
+		}
 
-	*/
+		// Remove init class for conditional CSS
+		document.documentElement.classList.remove(settings.initClass);
 
-  return {
-    init: init,
-  };
-})();
+		// @todo Undo any other init functions...
+
+		// Remove event listeners
+		document.removeEventListener('click', eventHandler, false);
+
+		// Reset variables
+		settings = null;
+		eventTimeout = null;
+		hook('onDestroy');
+	};
+
+	/**
+	 * Initialize Plugin
+	 * @public
+	 * @param {Object} options User settings
+	 */
+	anyModal.init = function (options) {
+		// feature test
+		if (!supports) {
+			return;
+		}
+
+		// Destroy any existing initializations
+		anyModal.destroy();
+		detectScrollbarWidth();
+
+		// Merge user options with defaults
+		settings = extend(defaults, options || {});
+
+		el = document.querySelector(settings.container);
+		createOverlay();
+		var rmodals = document.querySelectorAll('[data-modal]');
+		forEach(rmodals, function (index, value) {
+			index.addEventListener('click', function (e) {
+				e.preventDefault();
+				modal.name = index.getAttribute('data-modal');
+				modal.effect = index.getAttribute('data-effect');
+				modal.element = document.querySelector('#' + modal.name);
+				modal.element.classList.add(modal.effect);
+
+				// Force element to apply new css rules
+				modal.element.style.display='none';
+				var temp = modal.element.offsetHeight; // no need to store this anywhere, the reference is enough
+				modal.element.style.display='';
+
+				// Close the modal if overlay behind is touched/clicked. Not working at the moment.
+				('click touchmove touchend touchleave touchcancel'.split(' ')).forEach(function (event) {
+					overlay.addEventListener(event, function (e) {
+						if (e.target === this) {
+							close();
+						}
+					});
+				});
+
+				if (settings.redrawOnResize === true) {
+					var resizeTimer;
+					clearTimeout(resizeTimer);
+					resizeTimer = setTimeout(afterWindowResize, 100);
+				}
+
+				window.addEventListener('orientationchange', function() {
+					setHeight();
+				});
+				open();
+			});
+	});
+		// Remove preload class when page has loaded to allow transitions/animations
+		hook('onInit');
+	};
+
+	anyModal.closePanels = function () {
+		close();
+	};
+	//
+	// Public APIs
+	//
+
+	return anyModal;
+});

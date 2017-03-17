@@ -10,7 +10,7 @@ module.exports = function (grunt) {
 			'<%= grunt.template.today("yyyy-mm-dd") %>\n' +
 			'<%= pkg.homepage ? "* " + pkg.homepage + "\\n" : "" %>' +
 			'* Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>;' +
-			' Licensed <%= _.pluck(pkg.licenses, "type").join(", ") %> */\n',
+			' Licensed <%= _.map(pkg.licenses, "type").join(", ") %> */\n',
 		// Task configuration.
 		clean: {
 			files: ['dist']
@@ -133,7 +133,7 @@ module.exports = function (grunt) {
 	grunt.loadNpmTasks('grunt-postcss');
 
 	// Default task.
-	grunt.registerTask('default', ['jshint', 'clean', 'sass', 'concat', 'uglify', 'postcss', 'copy', 'version']);
+	grunt.registerTask('default', ['jshint', 'clean', 'sass', 'concat', 'uglify', 'postcss', 'copy']);
 	grunt.registerTask('version', ['update_json:bower', 'update_json:anyModal']);
 
 };
