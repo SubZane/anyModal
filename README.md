@@ -2,17 +2,17 @@ anyModal v1.0.1
 =======
 anyModal is a responsive solution for modal windows written in javascript. This new version is written in vanilla JavaScript and has no other dependencies.
 
-##Features
+## Features
 * Responsive modal windows. Works great on desktop computers as well on smart phones.
 * Can be used for video, images and text
 * Unlimited content possible inside modal window. Uses friendly simple scrollbars.
 
-##Installation
+## Installation
 ```
 bower install anyModal --save
 ```
 
-###Setup
+### Setup
 ```html
 <!-- You'll need to include anyModal of course! -->
 <script src="anyModal.js"></script>
@@ -20,7 +20,7 @@ bower install anyModal --save
 <!-- Some basic CSS is required of course -->
 <link rel="stylesheet" href="css/anyModal.css">
 ```
-##Usage
+## Usage
 ```javascript
 document.addEventListener("DOMContentLoaded", function(event) {
   anyModal.init({
@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 });
 ```
 
-###Settings and Defaults
+### Settings and Defaults
 ```javascript
 options: {
   transitiontime: 300,
@@ -41,7 +41,7 @@ options: {
 * `redrawOnResize`: Force a redraw if the viewport changes.
 
 
-###Typical setup
+### Typical setup
 This could be your typical script setup.
 
 Add the following javscript to execute the script on load.
@@ -55,7 +55,7 @@ The following markup to launch the modal window. Use the `data-effect` attribute
 ```html
   <a href="#" data-modal="mymodal" data-effect="rm-effect-1">Fade and zoom</a>
 ```
-###Effects available
+### Effects available
 * `rm-effect-1`: Fade and zoom
 * `rm-effect-2`: Slide from right
 * `rm-effect-3`: Pop from bottom
@@ -88,9 +88,9 @@ Add the following markup for the modal window itself. The ID of the modal window
 	</div>  
 ```
 
-##changelog
-####1.0.1
+## changelog
+#### 1.0.1
 * Fixed bug where an iframed video was displayed on Safari iPhone even if the modal was hidden.
 
-####1.0.0
+#### 1.0.0
 * Initial release
