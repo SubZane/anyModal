@@ -20,10 +20,10 @@
 		</div>
 		<div class="row">
 			<div class="col-xs-12 col-md-8 col-md-offset-2">
-				<div class="version">v 1.0.0</div>
+				<div class="version">v 1.1.0</div>
 				<div class="github">
-					<a class="github-button" href="https://github.com/SubZane/anyModal" data-style="mega" data-count-href="/SubZane/anyModal/stargazers" data-count-api="/repos/SubZane/anyModal#stargazers_count">Star</a>
-					<a class="github-button" href="https://github.com/SubZane/anyModal" data-style="mega" data-count-href="/SubZane/anyModal/network" data-count-api="/repos/SubZane/anyModal#forks_count">Fork</a>
+					<a class="github-button" href="https://github.com/SubZane/anyModal" data-size="large" data-count-href="/SubZane/anyModal/stargazers" data-show-count="true">Star</a>
+					<a class="github-button" href="https://github.com/SubZane/anyModal" data-size="large" data-count-href="/SubZane/anyModal/network" data-show-count="true">Fork</a>
 				</div>
 				<h1>anyModal - a responsive flexible modal window</h1>
 				<p>anyModal is a responsive and flexible modal window that can be used to show local content. This script is written in pure JavaScript and requires no dependencies to work.</p>
@@ -56,6 +56,16 @@
 				<p>All effects used has been stolen/borrowed from <a href="http://tympanus.net/Development/ModalWindowEffects/">Nifty Modal Window Effects</a></p>
 			</div>
 
+		</div>
+		<div class="row">
+			<div class="col-xs-12 col-md-8 col-md-offset-2">
+				 <h3>Modal windows with external source</h3>
+					<p>Each button displays a different awesome effect.</p>
+					<div class="buttons">
+						<a class="btn btn-effect" href="#" data-modal="myexternalmodal" data-effect="am-effect-1" data-title="External modal loaded" data-url="externalmodal.html">Fade and zoom</a>
+						<a class="btn btn-effect" href="#" data-modal="myexternalmodal" data-effect="am-effect-4" data-title="External modal loaded" data-url="externalmodal.html">Newspaper</a>
+					</div>
+			</div>
 		</div>
 	</div>
 
@@ -113,8 +123,8 @@
 							<h4><a href="http://www.andreasnorman.com/simplegmaps">SimpleGMaps</a></h4>
 							<p>SimpleGMaps is a jQuery plugin for easier handling google maps on your webiste. Simply add the needed HTML-markup and SimpleGMaps will take care of the rest, no scripting necessary!</p>
 							<div class="github">
-								<a class="github-button" href="https://github.com/SubZane/simplegmaps" data-style="mega" data-count-href="/SubZane/simplegmaps/stargazers" data-count-api="/repos/SubZane/simplegmaps#stargazers_count">Star</a>
-								<a class="github-button" href="https://github.com/SubZane/simplegmaps" data-style="mega" data-count-href="/SubZane/simplegmaps/network" data-count-api="/repos/SubZane/simplegmaps#forks_count">Fork</a>
+								<a class="github-button" href="https://github.com/SubZane/simplegmaps" data-size="large" data-count-href="/SubZane/simplegmaps/stargazers" data-show-count="true">Star</a>
+								<a class="github-button" href="https://github.com/SubZane/simplegmaps" data-size="large" data-count-href="/SubZane/simplegmaps/network" data-show-count="true">Fork</a>
 							</div>
 
 						</div>
@@ -128,8 +138,8 @@
 							<h4><a href="http://www.andreasnorman.com/socialjs">SocialJS</a></h4>
 							<p>SocialJS is a jQuery plugin for creating your own custom social media share buttons. You can design them anyway you want, just add the needed markup and SocialJS will handle the rest, no need to write any javascript.</p>
 							<div class="github">
-								<a class="github-button" href="https://github.com/SubZane/socialjs" data-style="mega" data-count-href="/SubZane/socialjs/stargazers" data-count-api="/repos/SubZane/socialjs#stargazers_count">Star</a>
-								<a class="github-button" href="https://github.com/SubZane/socialjs" data-style="mega" data-count-href="/SubZane/socialjs/network" data-count-api="/repos/SubZane/socialjs#forks_count">Fork</a>
+								<a class="github-button" href="https://github.com/SubZane/socialjs" data-size="large" data-count-href="/SubZane/socialjs/stargazers" data-show-count="true">Star</a>
+								<a class="github-button" href="https://github.com/SubZane/socialjs" data-size="large" data-count-href="/SubZane/socialjs/network" data-show-count="true">Fork</a>
 							</div>
 						</div>
 					</div>
@@ -142,8 +152,8 @@
 							<h4><a href="http://www.andreasnorman.com/flypanels">flyPanels</a></h4>
 							<p>FlyPanels is a off canvas mobile panel system for responsive websites. It comes complete with a menu component supporting 5  sub menu levels and a search component listing the search result from a JSON response.</p>
 							<div class="github">
-								<a class="github-button" href="https://github.com/SubZane/flypanels" data-style="mega" data-count-href="/SubZane/flypanels/stargazers" data-count-api="/repos/SubZane/flypanels#stargazers_count">Star</a>
-								<a class="github-button" href="https://github.com/SubZane/flypanels" data-style="mega" data-count-href="/SubZane/flypanels/network" data-count-api="/repos/SubZane/flypanels#forks_count">Fork</a>
+								<a class="github-button" href="https://github.com/SubZane/flypanels" data-size="large" data-count-href="/SubZane/flypanels/stargazers" data-show-count="true">Star</a>
+								<a class="github-button" href="https://github.com/SubZane/flypanels" data-size="large" data-count-href="/SubZane/flypanels/network" data-show-count="true">Fork</a>
 							</div>
 						</div>
 					</div>
@@ -158,7 +168,8 @@
 		document.addEventListener("DOMContentLoaded", function(event) {
 			anyModal.init({
 		    transitiontime: 300,
-		    redrawOnResize: true
+						redrawOnResize: true,
+						backgroundscroll: false
 		  });
 		});
 

@@ -19,8 +19,9 @@
 	var modal = {
 		element: null,
 		name: '',
-		isFed: false,
-		ajaxdataurl: ''
+		effect: 'am-effect-1',
+		title: '',
+		url: null
 	};
 	var supports = !!document.querySelector && !!root.addEventListener; // Feature test
 	var settings;
@@ -35,12 +36,17 @@
 		transitiontime: 300,
 		redrawOnResize: true,
 		logerrors: false,
+		backgroundscroll: true,
 		onInit: function () {},
+		onCreateModal: function () {},
+		onDestroyModal: function () {},
 		onOpen: function () {},
 		onClose: function () {},
-		onDestroy: function () {}
+		onDestroy: function () {},
+		OnOrientationChange: function () {},
+		onLoadModalContent: function () {},
+		afterWindowResize: function () {}
 	};
-
 
 	//
 	// Methods
@@ -61,8 +67,38 @@
 	};
 
 	var createOverlay = function () {
-		document.querySelector('body').innerHTML += '<div class="am-overlay"></div>';
+		var div = document.createElement('div');
+		div.classList.add('am-overlay');
+		document.body.appendChild(div);
 		overlay = document.querySelector('.am-overlay');
+	};
+
+	var appendHtml = function (el, str, callback) {
+		var div = document.createElement('div');
+		div.innerHTML = str;
+		while (div.children.length > 0) {
+			el.appendChild(div.children[0]);
+		}
+		callback(true);
+	};
+
+	var createModal = function (callback) {
+		var html = '<div class="am-modal" id="'+modal.name+'"><div class="am-content"><div class="am-header"><h3>'+modal.title+'</h3><a href="#" class="am-cross"><img src="img/cross.svg" width="19" height="19" alt="" /></a></div><div class="am-inner"></div></div></div>';
+		appendHtml(document.body, html, function (callback) {
+			modal.element = document.querySelector('#' + modal.name);
+			modal.element.classList.add(modal.effect);
+			// Force element to apply new css rules
+			modal.element.style.display='none';
+			var temp = modal.element.offsetHeight; // no need to store this anywhere, the reference is enough
+			modal.element.style.display='';
+		});
+		hook('onCreateModal');
+		callback(true);
+	};
+
+	var destroyModal = function () {
+		modal.element.remove();
+		hook('onDestroyModal');
 	};
 
 	var isMobileBrowser = function () {
@@ -83,60 +119,99 @@
 	var afterWindowResize = function () {
 		innerHeight = window.innerHeight;
 		setHeight();
+		hook('afterWindowResize');
 	};
 
 	var setHeight = function () {
 		modal.element.style.height = innerHeight;
 	};
 
+	var loadContent = function (callback) {
+		var request = new XMLHttpRequest();
+		request.open('GET', modal.url, true);
+		request.onload = function () {
+			if (request.status >= 200 && request.status < 400) {
+				// Success!
+				modal.data = request.response;
+				hook('onLoadModalContent');
+				callback(true);
+			} else {
+				// We reached our target server, but it returned an error
+				if (options.logerrors) {
+					console.log('An error occured when trying to load data from ' + modal.url);
+					callback(false);
+				}
+			}
+		};
+		request.onerror = function () {
+			// There was a connection error of some sort
+			if (options.logerrors) {
+				console.log('A connection error occured when trying to access ' + modal.url);
+				callback(false);
+			}
+		};
+		request.send();
+	};
+
 	var open = function () {
-		setHeight(modal.name);
 		if (hasVerticalScroll() === true && isMobileBrowser() === false) {
 			document.querySelector('body').style.marginRight = scrollbarWidth + 'px';
 		}
-		document.querySelector('body').classList.add('am-modal-locked');
-		document.querySelector('html').classList.add('am-modal-locked');
-		overlay.classList.add('fadein');
-		/*
-		if (modal.isFed) {
-			loadContent();
+		if (settings.backgroundscroll) {
+			document.querySelector('body').classList.add('am-modal-locked');
+			document.querySelector('html').classList.add('am-modal-locked');
 		}
-		*/
-		modal.element.classList.add('am-show');
+		overlay.classList.add('fadein');
 
-		setTimeout(function () {
-			modal.element.classList.add('am-animation-done');
-		}, settings.transitiontime);
+		if (modal.url !== null && document.querySelector('#' + modal.name) === null) {
+			createModal(function (response) {
+				setHeight();
+				loadContent(function (response) {
+					appendHtml(modal.element.querySelector('.am-inner'), modal.data, function (callback) {
+						modal.element.classList.add('am-show');
+						setTimeout(function () {
+							modal.element.classList.add('am-animation-done');
+						}, settings.transitiontime);
 
-		modal.element.querySelector('.am-cross').addEventListener('click', function (e) {
-			e.preventDefault();
-			close();
-		});
+						modal.element.querySelector('.am-cross').addEventListener('click', function (e) {
+							e.preventDefault();
+							close();
+						});
+					});
+				});
+			});
+		} else {
+			setHeight();
+			modal.element.classList.add('am-show');
+			setTimeout(function () {
+				modal.element.classList.add('am-animation-done');
+			}, settings.transitiontime);
+
+			modal.element.querySelector('.am-cross').addEventListener('click', function (e) {
+				e.preventDefault();
+				close();
+			});
+		}
 	};
 
 	var close = function () {
 		modal.element.classList.remove('am-show');
 		modal.element.classList.remove('am-animation-done');
-
 		overlay.classList.add('fadeout');
+
 		// let's wait for the neat animations to finish!
 		setTimeout(function () {
 			overlay.classList.remove('fadein');
 			overlay.classList.remove('fadeout');
 			document.querySelector('body').classList.remove('am-modal-locked');
 			document.querySelector('html').classList.remove('am-modal-locked');
-			/*
-			If the content is fetched with ajax, we need to remove the content div in order to avoid duplicate content.
-			An alternative would be not to fetch content on the second click.
-			*/
-			/*
-			if (modal.isFed) {
-				modal.element.querySelector('.rModal .content').remove();
-			}
-			*/
 			document.querySelector('body').style.marginRight = '';
 			modal.element.classList.remove(modal.effect);
+			if (modal.url !== null) {
+				destroyModal();
+			}
 		}, settings.transitiontime);
+		hook('onClose');
 	};
 
 	/**
@@ -211,6 +286,7 @@
 
 		// Remove event listeners
 		document.removeEventListener('click', eventHandler, false);
+		window.removeEventListener('orientationchange', eventHandler, false);
 
 		// Reset variables
 		settings = null;
@@ -235,32 +311,33 @@
 
 		// Merge user options with defaults
 		settings = extend(defaults, options || {});
-
 		el = document.querySelector(settings.container);
 		createOverlay();
+
+		('click touchmove touchend touchleave touchcancel'.split(' ')).forEach(function (event) {
+			overlay.addEventListener(event, function (e) {
+				if (e.target === this) {
+					close();
+				}
+			});
+		});
+
 		var rmodals = document.querySelectorAll('[data-modal]');
 		forEach(rmodals, function (index, value) {
 			index.addEventListener('click', function (e) {
 				e.preventDefault();
 				modal.name = index.getAttribute('data-modal');
 				modal.effect = index.getAttribute('data-effect');
-				modal.element = document.querySelector('#' + modal.name);
-				modal.element.classList.add(modal.effect);
-
-				// Force element to apply new css rules
-				modal.element.style.display='none';
-				var temp = modal.element.offsetHeight; // no need to store this anywhere, the reference is enough
-				modal.element.style.display='';
-
-				// Close the modal if overlay behind is touched/clicked. Not working at the moment.
-				('click touchmove touchend touchleave touchcancel'.split(' ')).forEach(function (event) {
-					overlay.addEventListener(event, function (e) {
-						if (e.target === this) {
-							close();
-						}
-					});
-				});
-
+				modal.url = index.getAttribute('data-url');
+				modal.title = index.getAttribute('data-title');
+				if (modal.url === null) {
+					modal.element = document.querySelector('#' + modal.name);
+					modal.element.classList.add(modal.effect);
+					// Force element to apply new css rules
+					modal.element.style.display='none';
+					var temp = modal.element.offsetHeight; // no need to store this anywhere, the reference is enough
+					modal.element.style.display='';
+				}
 				if (settings.redrawOnResize === true) {
 					var resizeTimer;
 					clearTimeout(resizeTimer);
@@ -269,10 +346,11 @@
 
 				window.addEventListener('orientationchange', function() {
 					setHeight();
+					hook('OnOrientationChange');
 				});
 				open();
 			});
-	});
+		});
 		// Remove preload class when page has loaded to allow transitions/animations
 		hook('onInit');
 	};

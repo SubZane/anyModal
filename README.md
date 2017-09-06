@@ -1,4 +1,4 @@
-anyModal v1.0.1
+anyModal v1.1
 =======
 anyModal is a responsive solution for modal windows written in javascript. This new version is written in vanilla JavaScript and has no other dependencies.
 
@@ -24,8 +24,9 @@ bower install anyModal --save
 ```javascript
 document.addEventListener("DOMContentLoaded", function(event) {
   anyModal.init({
-    transitiontime: 300,
-    redrawOnResize: true
+		transitiontime: 300,
+		redrawOnResize: true,
+		backgroundscroll: true,
   });
 });
 ```
@@ -33,12 +34,14 @@ document.addEventListener("DOMContentLoaded", function(event) {
 ### Settings and Defaults
 ```javascript
 options: {
-  transitiontime: 300,
-  redrawOnResize: true
+		transitiontime: 300,
+		redrawOnResize: true,
+		backgroundscroll: true,
 };
 ```
 * `transitiontime`: Time in milliseconds to time transtions set in your CSS. Change this if you change your CSS
 * `redrawOnResize`: Force a redraw if the viewport changes.
+* `backgroundscroll`: Allow background behind modal to scroll.
 
 
 ### Typical setup
@@ -88,7 +91,24 @@ Add the following markup for the modal window itself. The ID of the modal window
 	</div>  
 ```
 
+### External modal setup
+
+The following markup to launch the modal window. Use the `data-url` attribute to use external modal content.
+```html
+  <a class="btn btn-effect" href="#" data-modal="myexternalmodal" data-effect="am-effect-1" data-title="External modal loaded" data-url="externalmodal.html">Fade and zoom</a>
+```
+
+## Attributes explained
+* `data-modal`: ID of of modal element
+* `data-effect`: Effect
+* `data-title`: Title of modal when using external content
+* `data-url`: URL to external modal content
+
 ## changelog
+#### 1.1.0
+* Modal windows can now display content from other URLs
+* More hooks added
+
 #### 1.0.1
 * Fixed bug where an iframed video was displayed on Safari iPhone even if the modal was hidden.
 
