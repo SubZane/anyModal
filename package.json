@@ -2,7 +2,7 @@
   "name": "anymodal",
   "title": "anyModal",
   "description": "Responsive modal windows",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "engines": {
     "node": ">= 0.8.0"
   },
