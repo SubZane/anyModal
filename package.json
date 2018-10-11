@@ -1,5 +1,5 @@
 {
-  "name": "anyModal",
+  "name": "anymodal",
   "title": "anyModal",
   "description": "Responsive modal windows",
   "version": "1.1.0",
@@ -7,16 +7,36 @@
     "node": ">= 0.8.0"
   },
   "devDependencies": {
-    "autoprefixer": "^7.1.3",
+    "autoprefixer": "^9.1.5",
     "grunt": "~1.0.1",
-    "grunt-contrib-clean": "~1.1.0",
+    "grunt-contrib-clean": "~2.0.0",
     "grunt-contrib-concat": "~1.0.1",
     "grunt-contrib-copy": "^1.0.0",
-    "grunt-contrib-jshint": "~1.1.0",
-    "grunt-contrib-uglify": "~3.0.1",
-    "grunt-contrib-watch": "~1.0.0",
-    "grunt-postcss": "^0.8.0",
-    "grunt-sass": "^2.0.0",
-    "grunt-update-json": "^0.2.1"
-  }
+    "grunt-contrib-jshint": "~2.0.0",
+    "grunt-contrib-sass": "^1.0.0",
+    "grunt-contrib-uglify": "~4.0.0",
+    "grunt-contrib-watch": "~1.1.0",
+    "grunt-postcss": "^0.9.0"
+  },
+  "main": "index.js",
+  "repository": "https://SubZane@github.com/SubZane/anyModal.git",
+  "homepage": "https://www.andreasnorman.com/anyModal/",
+  "bugs": "https://github.com/SubZane/anyModal/issues",
+  "author": "Andreas Norman <an@andreasnorman.se>",
+  "license": "MIT",
+  "private": false,
+  "keywords": [
+    "navigation",
+    "mobile",
+    "responsive",
+    "off canvas"
+  ],
+  "files": [
+    "dist/*.js",
+    "/*.js",
+    "demo/*.*",
+    "*.json",
+    "*.md",
+    "LICENSE-MIT"
+  ]
 }

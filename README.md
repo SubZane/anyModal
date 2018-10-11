@@ -1,4 +1,4 @@
-anyModal v1.1
+anyModal v1.2
 =======
 anyModal is a responsive solution for modal windows written in javascript. This new version is written in vanilla JavaScript and has no other dependencies.
 
@@ -9,7 +9,7 @@ anyModal is a responsive solution for modal windows written in javascript. This 
 
 ## Installation
 ```
-bower install anyModal --save
+yarn add anyModal
 ```
 
 ### Setup
@@ -105,6 +105,9 @@ The following markup to launch the modal window. Use the `data-url` attribute to
 * `data-url`: URL to external modal content
 
 ## changelog
+### 1.2.0
+* Now available on Yarn instead of Bower
+
 #### 1.1.0
 * Modal windows can now display content from other URLs
 * More hooks added
