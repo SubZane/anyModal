@@ -2,6 +2,9 @@ anyModal v1.2
 =======
 anyModal is a responsive solution for modal windows written in javascript. This new version is written in vanilla JavaScript and has no other dependencies.
 
+## Demo
+https://andreasnorman.com/anymodal/
+
 ## Features
 * Responsive modal windows. Works great on desktop computers as well on smart phones.
 * Can be used for video, images and text
