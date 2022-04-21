@@ -1,42 +1,40 @@
 {
-  "name": "anymodal",
-  "title": "anyModal",
-  "description": "Responsive modal windows",
-  "version": "1.2.0",
-  "engines": {
-    "node": ">= 0.8.0"
-  },
-  "devDependencies": {
-    "autoprefixer": "^9.1.5",
-    "grunt": "~1.0.1",
-    "grunt-contrib-clean": "~2.0.0",
-    "grunt-contrib-concat": "~1.0.1",
-    "grunt-contrib-copy": "^1.0.0",
-    "grunt-contrib-jshint": "~2.0.0",
-    "grunt-contrib-sass": "^1.0.0",
-    "grunt-contrib-uglify": "~4.0.0",
-    "grunt-contrib-watch": "~1.1.0",
-    "grunt-postcss": "^0.9.0"
-  },
-  "main": "index.js",
-  "repository": "https://SubZane@github.com/SubZane/anyModal.git",
-  "homepage": "https://www.andreasnorman.com/anyModal/",
-  "bugs": "https://github.com/SubZane/anyModal/issues",
-  "author": "Andreas Norman <an@andreasnorman.se>",
-  "license": "MIT",
-  "private": false,
-  "keywords": [
-    "navigation",
-    "mobile",
-    "responsive",
-    "off canvas"
-  ],
-  "files": [
-    "dist/*.js",
-    "/*.js",
-    "demo/*.*",
-    "*.json",
-    "*.md",
-    "LICENSE-MIT"
-  ]
+	"name": "anymodal",
+	"title": "anyModal",
+	"description": "Responsive modal windows",
+	"version": "1.2.1",
+	"engines": {
+		"node": ">= 0.8.0"
+	},
+	"devDependencies": {
+		"gulp": "^4.0.2",
+		"gulp-autoprefixer": "^8.0.0",
+		"gulp-postcss": "^9.0.1",
+		"gulp-rename": "^2.0.0",
+		"gulp-sass": "^5.1.0",
+		"gulp-sourcemaps": "^3.0.0",
+		"gulp-uglify": "^3.0.2",
+		"sass": "^1.49.7"
+	},
+	"main": "index.js",
+	"repository": "https://SubZane@github.com/SubZane/anyModal.git",
+	"homepage": "https://www.andreasnorman.com/anyModal/",
+	"bugs": "https://github.com/SubZane/anyModal/issues",
+	"author": "Andreas Lee-Norman <andreas@lee-norman.com>",
+	"license": "MIT",
+	"private": false,
+	"keywords": [
+		"modal window",
+		"responsive",
+		"lightbox",
+		"modal"
+	],
+	"files": [
+		"dist/*.js",
+		"/*.js",
+		"demo/*.*",
+		"*.json",
+		"*.md",
+		"LICENSE-MIT"
+	]
 }

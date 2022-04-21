@@ -7,7 +7,6 @@
 		root.anyModal = factory(root);
 	}
 })(typeof global !== 'undefined' ? global : this.window || this.global, function (root) {
-
 	'use strict';
 
 	//
@@ -21,7 +20,7 @@
 		name: '',
 		effect: 'am-effect-1',
 		title: '',
-		url: null
+		url: null,
 	};
 	var supports = !!document.querySelector && !!root.addEventListener; // Feature test
 	var settings;
@@ -45,7 +44,7 @@
 		onDestroy: function () {},
 		OnOrientationChange: function () {},
 		onLoadModalContent: function () {},
-		afterWindowResize: function () {}
+		afterWindowResize: function () {},
 	};
 
 	//
@@ -83,14 +82,19 @@
 	};
 
 	var createModal = function (callback) {
-		var html = '<div class="am-modal" id="'+modal.name+'"><div class="am-content"><div class="am-header"><h3>'+modal.title+'</h3><a href="#" class="am-cross"><img src="img/cross.svg" width="19" height="19" alt="" /></a></div><div class="am-inner"></div></div></div>';
+		var html =
+			'<div class="am-modal" id="' +
+			modal.name +
+			'"><div class="am-content"><div class="am-header"><h3>' +
+			modal.title +
+			'</h3><a href="#" class="am-cross"><img src="img/cross.svg" width="19" height="19" alt="" /></a></div><div class="am-inner"></div></div></div>';
 		appendHtml(document.body, html, function (callback) {
 			modal.element = document.querySelector('#' + modal.name);
 			modal.element.classList.add(modal.effect);
 			// Force element to apply new css rules
-			modal.element.style.display='none';
+			modal.element.style.display = 'none';
 			var temp = modal.element.offsetHeight; // no need to store this anywhere, the reference is enough
-			modal.element.style.display='';
+			modal.element.style.display = '';
 		});
 		hook('onCreateModal');
 		callback(true);
@@ -157,7 +161,7 @@
 		if (hasVerticalScroll() === true && isMobileBrowser() === false) {
 			document.querySelector('body').style.marginRight = scrollbarWidth + 'px';
 		}
-		if (settings.backgroundscroll) {
+		if (!settings.backgroundscroll) {
 			document.querySelector('body').classList.add('am-modal-locked');
 			document.querySelector('html').classList.add('am-modal-locked');
 		}
@@ -273,7 +277,6 @@
 	 * @public
 	 */
 	anyModal.destroy = function () {
-
 		// If plugin isn't already initialized, stop
 		if (!settings) {
 			return;
@@ -314,7 +317,7 @@
 		el = document.querySelector(settings.container);
 		createOverlay();
 
-		('click touchmove touchend touchleave touchcancel'.split(' ')).forEach(function (event) {
+		'click touchmove touchend touchleave touchcancel'.split(' ').forEach(function (event) {
 			overlay.addEventListener(event, function (e) {
 				if (e.target === this) {
 					close();
@@ -334,9 +337,9 @@
 					modal.element = document.querySelector('#' + modal.name);
 					modal.element.classList.add(modal.effect);
 					// Force element to apply new css rules
-					modal.element.style.display='none';
+					modal.element.style.display = 'none';
 					var temp = modal.element.offsetHeight; // no need to store this anywhere, the reference is enough
-					modal.element.style.display='';
+					modal.element.style.display = '';
 				}
 				if (settings.redrawOnResize === true) {
 					var resizeTimer;
@@ -344,7 +347,7 @@
 					resizeTimer = setTimeout(afterWindowResize, 100);
 				}
 
-				window.addEventListener('orientationchange', function() {
+				window.addEventListener('orientationchange', function () {
 					setHeight();
 					hook('OnOrientationChange');
 				});
