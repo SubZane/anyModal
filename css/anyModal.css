@@ -1,0 +1,393 @@
+@keyframes zoomin {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  30% {
+    opacity: 0;
+  }
+  100% {
+    bottom: 0;
+  }
+}
+@keyframes zoomout {
+  0% {
+    transform: scale(1);
+  }
+  90% {
+    transform: scale(0);
+  }
+  100% {
+    opacity: 0;
+    display: none;
+  }
+}
+@keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadeout {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+/* Individual modal styles with animations/transitions */
+/* Effect 1: Fade in and scale up */
+.am-effect-1 .am-content {
+  transform: scale(0.7);
+  opacity: 0;
+  transition: all 0.3s;
+}
+
+.am-show.am-effect-1 .am-content {
+  transform: scale(1);
+  opacity: 1;
+}
+
+/* Effect 2: Slide from the right */
+.am-effect-2 .am-content {
+  transform: translateX(20%);
+  opacity: 0;
+  transition: all 0.3s cubic-bezier(0.25, 0.5, 0.5, 0.9);
+}
+
+.am-show.am-effect-2 .am-content {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+/* Effect 3: Slide from the bottom */
+.am-effect-3 .am-content {
+  transform: translateY(20%);
+  opacity: 0;
+  transition: all 0.3s;
+}
+
+.am-show.am-effect-3 .am-content {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Effect 4: Newspaper */
+.am-effect-4 .am-content {
+  transform: scale(0) rotate(720deg);
+  opacity: 0;
+}
+
+.am-show.am-effect-4 ~ .am-overlay,
+.am-effect-4 .am-content {
+  transition: all 0.3s;
+}
+
+.am-show.am-effect-4 .am-content {
+  transform: scale(1) rotate(0deg);
+  opacity: 1;
+}
+
+/* Effect 5: fall */
+.am-effect-5.am-modal {
+  perspective: 1300px;
+}
+
+.am-effect-5 .am-content {
+  transform-style: preserve-3d;
+  transform: translateZ(600px) rotateX(20deg);
+  opacity: 0;
+}
+
+.am-show.am-effect-5 .am-content {
+  transition: all 0.3s ease-in;
+  transform: translateZ(0px) rotateX(0deg);
+  opacity: 1;
+}
+
+/* Effect 6: side fall */
+.am-effect-6.am-modal {
+  perspective: 1300px;
+}
+
+.am-effect-6 .am-content {
+  transform-style: preserve-3d;
+  transform: translate(30%) translateZ(600px) rotate(10deg);
+  opacity: 0;
+}
+
+.am-show.am-effect-6 .am-content {
+  transition: all 0.3s ease-in;
+  transform: translate(0%) translateZ(0) rotate(0deg);
+  opacity: 1;
+}
+
+/* Effect 7:  slide and stick to top */
+.am-effect-7 {
+  top: 0;
+  transform: translateX(-50%);
+}
+
+.am-effect-7 .am-content {
+  transform: translateY(-200%);
+  transition: all 0.3s;
+  opacity: 0;
+}
+
+.am-show.am-effect-7 .am-content {
+  transform: translateY(0%);
+  border-radius: 0 0 3px 3px;
+  opacity: 1;
+}
+
+/* Effect 8: 3D flip horizontal */
+.am-effect-8.am-modal {
+  perspective: 1300px;
+}
+
+.am-effect-8 .am-content {
+  transform-style: preserve-3d;
+  transform: rotateY(-70deg);
+  transition: all 0.3s;
+  opacity: 0;
+}
+
+.am-show.am-effect-8 .am-content {
+  transform: rotateY(0deg);
+  opacity: 1;
+}
+
+/* Effect 9: 3D flip vertical */
+.am-effect-9.am-modal {
+  perspective: 1300px;
+}
+
+.am-effect-9 .am-content {
+  transform-style: preserve-3d;
+  transform: rotateX(-70deg);
+  transition: all 0.3s;
+  opacity: 0;
+}
+
+.am-show.am-effect-9 .am-content {
+  transform: rotateX(0deg);
+  opacity: 1;
+}
+
+/* Effect 10: 3D sign */
+.am-effect-10.am-modal {
+  perspective: 1300px;
+}
+
+.am-effect-10 .am-content {
+  transform-style: preserve-3d;
+  transform: rotateX(-60deg);
+  transform-origin: 50% 0;
+  opacity: 0;
+  transition: all 0.3s;
+}
+
+.am-show.am-effect-10 .am-content {
+  transform: rotateX(0deg);
+  opacity: 1;
+}
+
+/* Effect 11: Super scaled */
+.am-effect-11 .am-content {
+  transform: scale(2);
+  opacity: 0;
+  transition: all 0.3s;
+}
+
+.am-show.am-effect-11 .am-content {
+  transform: scale(1);
+  opacity: 1;
+}
+
+/* Effect 13: 3D slit */
+.am-effect-12.am-modal {
+  perspective: 1300px;
+}
+
+.am-effect-12 .am-content {
+  transform-style: preserve-3d;
+  transform: translateZ(-3000px) rotateY(90deg);
+  opacity: 0;
+}
+
+.am-show.am-effect-12 .am-content {
+  animation: slit 0.3s forwards ease-out;
+}
+@keyframes slit {
+  50% {
+    transform: translateZ(-250px) rotateY(89deg);
+    opacity: 1;
+    animation-timing-function: ease-in;
+  }
+  100% {
+    transform: translateZ(0) rotateY(0deg);
+    opacity: 1;
+  }
+}
+/* Effect 14:  3D Rotate from bottom */
+.am-effect-13.am-modal {
+  perspective: 1300px;
+}
+
+.am-effect-13 .am-content {
+  transform-style: preserve-3d;
+  transform: translateY(100%) rotateX(90deg);
+  transform-origin: 0 100%;
+  opacity: 0;
+  transition: all 0.3s ease-out;
+}
+
+.am-show.am-effect-13 .am-content {
+  transform: translateY(0%) rotateX(0deg);
+  opacity: 1;
+}
+
+/* Effect 15:  3D Rotate in from left */
+.am-effect-14.am-modal {
+  perspective: 1300px;
+}
+
+.am-effect-14 .am-content {
+  transform-style: preserve-3d;
+  transform: translateZ(100px) translateX(-30%) rotateY(90deg);
+  transform-origin: 0 100%;
+  opacity: 0;
+  transition: all 0.3s;
+}
+
+.am-show.am-effect-14 .am-content {
+  transform: translateZ(0px) translateX(0%) rotateY(0deg);
+  opacity: 1;
+}
+
+.am-overlay {
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  position: fixed;
+  z-index: 1000;
+  top: -5000px;
+  right: -5000px;
+  bottom: -5000px;
+  left: -5000px;
+  display: none;
+  background: #2B2E38;
+  background: rgba(43, 46, 56, 0.9);
+}
+.am-overlay.fadein {
+  display: block;
+  animation: fadein 0.3s ease-in;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;
+}
+.am-overlay.fadeout {
+  animation: fadeout 0.3s ease-in;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;
+  opacity: 1;
+}
+
+html.am-modal-locked, body.am-modal-locked {
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  position: fixed;
+}
+
+.am-modal {
+  position: fixed;
+  border-radius: 5px;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: -60px;
+  max-width: 700px;
+  z-index: 2000;
+  visibility: hidden;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+}
+.am-modal .am-content {
+  color: #fff;
+  background: #e74c3c;
+  margin: 0 auto;
+  max-width: 600px;
+  overflow: hidden;
+  position: absolute;
+  bottom: 70px;
+  top: 0;
+  left: 0;
+  right: 0;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+.am-modal .am-content .am-header {
+  opacity: 0.8;
+  background: #D54637;
+  border-radius: 5px 5px 0 0;
+  height: 60px;
+  position: relative;
+}
+.am-modal .am-content .am-header h3 {
+  margin: 0;
+  padding: 0.4em;
+  text-align: center;
+  font-size: 2.4em;
+  font-weight: 300;
+}
+.am-modal .am-content .am-header .am-cross {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+}
+.am-modal .am-content .am-inner {
+  overflow-y: auto;
+  padding: 15px 40px 30px;
+  margin: 0;
+  font-weight: 300;
+  font-size: 1.15em;
+  position: absolute;
+  bottom: 0;
+  top: 60px;
+}
+.am-modal .am-content .am-inner iframe {
+  display: none;
+}
+.am-modal .am-content .am-inner p {
+  margin: 0;
+  padding: 10px 0;
+}
+
+.am-show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.am-animation-done {
+  overflow-y: hidden;
+}
+.am-animation-done .am-content .am-inner {
+  -webkit-overflow-scrolling: touch;
+}
+.am-animation-done .am-content .am-inner iframe {
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .am-modal {
+    top: 50%;
+    left: 50%;
+    width: 80%;
+    max-width: 600px;
+    height: 90%;
+    transform: translateX(-50%) translateY(-46%);
+  }
+}
+/*# sourceMappingURL=anyModal.css.map */
