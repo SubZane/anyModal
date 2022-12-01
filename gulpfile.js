@@ -1,30 +1,29 @@
-const { src, dest, watch, series, parallel } = require("gulp");
-const sass = require("gulp-sass")(require("sass"));
-const autoprefixer = require("gulp-autoprefixer");
-const uglify = require("gulp-uglify");
-const rename = require("gulp-rename");
+const { src, dest, watch, series, parallel } = require('gulp');
+const sass = require('gulp-sass')(require('sass'));
+const autoprefixer = require('gulp-autoprefixer');
+const uglify = require('gulp-uglify');
+const rename = require('gulp-rename');
 
 const files = {
-	scssPath: "src/sass/**/*.scss",
-	jsPath: "src/**/*.js",
-
-	demoCSS: "demo/css",
-	demoJS: "demo/js",
-	dist: "dist",
+	scssPath: 'src/sass/**/*.scss',
+	jsPath: 'src/**/*.js',
+	demoCSS: 'demo/css',
+	demoJS: 'demo/js',
+	dist: 'dist',
 };
 
 function scssTask() {
 	return src(files.scssPath, { sourcemaps: true }) // set source and turn on sourcemaps
-		.pipe(sass().on("error", sass.logError))
+		.pipe(sass().on('error', sass.logError))
 		.pipe(autoprefixer())
-		.pipe(dest(files.demoCSS, { sourcemaps: "." }))
-		.pipe(dest(files.dist, { sourcemaps: "." })); // put final CSS in dist folder with sourcemap
+		.pipe(dest(files.demoCSS, { sourcemaps: '.' }))
+		.pipe(dest(files.dist, { sourcemaps: '.' })); // put final CSS in dist folder with sourcemap
 }
 
 function uglifyTask() {
 	return src([files.jsPath])
 		.pipe(uglify())
-		.pipe(rename({ extname: ".min.js" }))
+		.pipe(rename({ extname: '.min.js' }))
 		.pipe(dest(files.dist))
 		.pipe(dest(files.demoJS))
 		.pipe(dest(files.dist))
@@ -47,3 +46,5 @@ function watchTask() {
 
 exports.default = parallel(scssTask, uglifyTask, copyJS, watchTask);
 exports.build = parallel(scssTask, uglifyTask, copyJS);
+exports.css = parallel(scssTask);
+exports.js = parallel(uglifyTask);

@@ -1,10 +1,10 @@
-# anyModal v1.2
+# anyModal v1.3
 
 anyModal is a responsive solution for modal windows written in javascript. This new version is written in vanilla JavaScript and has no other dependencies.
 
 ## Demo
 
-https://andreasnorman.com/anymodal/
+http://subzane.github.io/anyModal/
 
 ## Features
 
@@ -31,7 +31,7 @@ yarn add anyModal
 ## Usage
 
 ```javascript
-document.addEventListener("DOMContentLoaded", function (event) {
+document.addEventListener('DOMContentLoaded', function (event) {
 	anyModal.init({
 		transitiontime: 300,
 		redrawOnResize: true,
@@ -61,7 +61,7 @@ This could be your typical script setup.
 Add the following javscript to execute the script on load.
 
 ```javascript
-document.addEventListener("DOMContentLoaded", function (event) {
+document.addEventListener('DOMContentLoaded', function (event) {
 	anyModal.init();
 });
 ```
@@ -112,13 +112,7 @@ Add the following markup for the modal window itself. The ID of the modal window
 The following markup to launch the modal window. Use the `data-url` attribute to use external modal content.
 
 ```html
-<a
-	class="btn btn-effect"
-	href="#"
-	data-modal="myexternalmodal"
-	data-effect="am-effect-1"
-	data-title="External modal loaded"
-	data-url="externalmodal.html"
+<a class="btn btn-effect" href="#" data-modal="myexternalmodal" data-effect="am-effect-1" data-title="External modal loaded" data-url="externalmodal.html"
 	>Fade and zoom</a
 >
 ```
@@ -131,6 +125,10 @@ The following markup to launch the modal window. Use the `data-url` attribute to
 - `data-url`: URL to external modal content
 
 ## changelog
+
+### 1.3
+
+- Updated documentation and github workflow and new demo url
 
 ### 1.2.1
 
